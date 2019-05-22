@@ -284,4 +284,39 @@ export function activate(context: vscode.ExtensionContext) {
             enqueueDecorUpdate();
     }, null, context.subscriptions);
 
+    // Register debug hover providers. Uncomment to enable
+    // Very useful tool for implementation and fixing of grammars
+    // for (const lang of supportedLangs) {
+    //     vscode.languages.registerHoverProvider(lang, {
+    //         provideHover(doc: vscode.TextDocument, pos: vscode.Position) {
+    //             const uri = doc.uri.toString();
+    //             if (!(uri in trees))
+    //                 return null;
+    //             const xy: parser.Point = { row: pos.line, column: pos.character };
+    //             let node = trees[uri].rootNode.descendantForPosition(xy);
+    //             if (!node)
+    //                 return null;
+
+    //             let type = node.type;
+    //             if (!node.isNamed)
+    //                 type = '"' + type + '"';
+    //             let parent = node.parent;
+    //             for (let i = 0; i < 2; i++ && parent) {
+    //                 let parentType = parent.type;
+    //                 if (!parent.isNamed)
+    //                     parentType = '"' + parentType + '"';
+    //                 type = parentType + " > " + type;
+    //                 parent = parent.parent;
+    //             }
+
+    //             return {
+    //                 contents: [type],
+    //                 range: new vscode.Range(
+    //                     node.startPosition.row, node.startPosition.column,
+    //                     node.endPosition.row, node.endPosition.column)
+    //             };
+    //         }
+    //     });
+    // }
+
 }
