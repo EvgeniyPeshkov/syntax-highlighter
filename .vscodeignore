@@ -1,5 +1,4 @@
 .vscode/**
 .gitignore
-src/**
 tslint.json
 tsconfig.json

@@ -39,7 +39,7 @@ export function activate(context: vscode.ExtensionContext) {
     let trees: { [doc: string]: parser.Tree } = {};
 
     // Languages
-    const supportedLangs: string[] = ["cpp", "c", "python"];
+    const supportedLangs: string[] = ["cpp", "c", "typescript"];
     const grammars: { [lang: string]: Grammar } = {};
 
     // Term colors

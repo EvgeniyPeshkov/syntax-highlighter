@@ -29,14 +29,16 @@
 		"Parser",
 		"C",
 		"C++",
-		"CPP"
+        "CPP",
+        "TypeScript"
 	],
 	"engines": {
 		"vscode": "^1.15.0"
 	},
 	"activationEvents": [
 		"onLanguage:c",
-		"onLanguage:cpp"
+		"onLanguage:cpp",
+		"onLanguage:typescript"
 	],
 	"main": "./out/extension.js",
 	"scripts": {
@@ -49,7 +51,8 @@
 		"jsonc-parser": "^2.1.0",
 		"tree-sitter": "^0.15.1",
 		"tree-sitter-c": "^0.13.13",
-		"tree-sitter-cpp": "^0.13.15"
+		"tree-sitter-cpp": "^0.13.15",
+		"tree-sitter-typescript": "^0.13.6"
 	},
 	"devDependencies": {
 		"@types/node": "^12.0.2",

@@ -3,7 +3,7 @@
 Syntax highlighter based on [Tree-Sitter](https://tree-sitter.github.io/tree-sitter/).
 
 Provides universal syntax coloring engine for almost any programming language.
-See [list](#languages) of currently supported languages below. Under the hood
+See [list of currently supported languages](#languages) below. Under the hood
 the extension utilizes VSCode Decoration API to override syntax coloring provided
 by standard TextMate regex matching. Constructing entire syntax tree, Tree-sitter
 efficiently overcomes all limitations of built-in TextMate grammars. Being
@@ -20,6 +20,7 @@ from [GitHub page](https://github.com/EvgeniyPeshkov/syntax-highlighter/releases
 #### Languages:
 * C++
 * C
+* TypeScript
 * More to come upon contribution
 
 ## Customization
