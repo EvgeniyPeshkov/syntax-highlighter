@@ -1,31 +1,21 @@
 {
     "simpleTerms": {
-        "type_identifier": "type",
-        "predefined_type": "type",
 
         "\"var\"": "storage_modifier",
         "\"let\"": "storage_modifier",
         "\"extends\"": "storage_modifier",
         "\"const\"": "storage_modifier",
         "\"static\"": "storage_modifier",
-        "\"public\"": "storage_modifier",
-        "\"private\"": "storage_modifier",
-        "\"protected\"": "storage_modifier",
-        "\"readonly\"": "storage_modifier",
-
-        "namespace": "namespace",
-        "module": "namespace",
 
         "number": "number",
         "string": "string",
         "escape_sequence": "string",
         "template_string": "string",
-        "template_substitution": "string",
         "regex": "string",
         "comment": "comment",
         "hash_bang_line": "comment",
 
-		"true": "keyword_constant",
+        "true": "keyword_constant",
 		"false": "keyword_constant",
         "null": "keyword_constant",
         "undefined": "keyword_constant",
@@ -57,12 +47,7 @@
         "\"delete\"": "keyword_control",
 
         "\"class\"": "keyword_operator",
-        "\"type\"": "keyword_operator",
-        "\"enum\"": "keyword_operator",
         "\"function\"": "keyword_operator",
-        "\"interface\"": "keyword_operator",
-        "\"implements\"": "keyword_operator",
-        "\"declare\"": "keyword_operator",
 
         "\"in\"": "keyword_operator",
         "\"instanceof\"": "keyword_operator",
@@ -70,7 +55,7 @@
         "\"new\"": "keyword_operator",
         "\"typeof\"": "keyword_operator",
         "\"get\"": "keyword_operator",
-        "\"set\"": "keyword_operator",
+		"\"set\"": "keyword_operator",
 
         "\"=\"": "keyword_operator",
         "\"+=\"": "keyword_operator",
@@ -131,11 +116,11 @@
     "complexScopes": {
         "identifier": "variable",
         "property_identifier": "variable",
-        "member_expression > property_identifier": "variable",
+        "formal_parameters > identifier": "variable",
         "jsx_attribute > property_identifier": "variable",
 
         "class > identifier": "type",
-        "new_expression > call_expression > identifier": "type",
+        "new_expression > identifier": "type",
         "jsx_opening_element > identifier": "type",
         "jsx_closing_element > identifier": "type",
         "jsx_self_closing_element > identifier": "type",
@@ -146,7 +131,5 @@
         "generator_function > identifier": "function",
         "method_definition > property_identifier": "function",
         "call_expression > member_expression > property_identifier": "function",
-        "method_signature > property_identifier": "function",
-        "function_signature > identifier": "function",
     }
 }

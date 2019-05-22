@@ -21,6 +21,7 @@ from [GitHub page](https://github.com/EvgeniyPeshkov/syntax-highlighter/releases
 * C++
 * C
 * TypeScript
+* JavaScript
 * More to come upon contribution
 
 ## Customization
