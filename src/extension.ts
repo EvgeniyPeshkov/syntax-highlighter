@@ -39,7 +39,9 @@ export function activate(context: vscode.ExtensionContext) {
     let trees: { [doc: string]: parser.Tree } = {};
 
     // Languages
-    const supportedLangs: string[] = ["cpp", "c", "typescript", "javascript"];
+    const langsFile = __dirname + "/../src/supported-langs.json";
+    const langsJson = jsonc.parse(readFileSync(langsFile).toString());
+    const supportedLangs: string[] = langsJson["languages"];
     const grammars: { [lang: string]: Grammar } = {};
 
     // Term colors
