@@ -35,7 +35,6 @@
 		"system_lib_string": "string",
 		"raw_string_literal": "string",
 		"escape_sequence": "string",
-		// "preproc_include > string_literal > escape_sequence": "string",
 
 		"null": "keyword_constant",
 		"nullptr": "keyword_constant",
@@ -108,9 +107,6 @@
 		"\"|=\"": "keyword_operator",
 		"\"?\"": "keyword_operator",
 		"\"::\"": "keyword_operator",
-		// "relational_expression > \"<\"": "keyword_operator",
-		// "relational_expression > \">\"": "keyword_operator",
-		// "conditional_expression > \":\"": "keyword_operator",
 
 		"\"#if\"": "keyword_directive",
 		"\"#ifdef\"": "keyword_directive",

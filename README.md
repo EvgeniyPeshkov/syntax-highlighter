@@ -20,6 +20,7 @@ from [GitHub page](https://github.com/EvgeniyPeshkov/syntax-highlighter/releases
 #### Languages:
 * C++
 * C
+* Go
 * TypeScript
 * JavaScript
 * More to come upon contribution

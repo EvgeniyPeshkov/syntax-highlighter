@@ -109,11 +109,9 @@
 		"\"}\"": "punctuation",
 		"\"(\"": "punctuation",
 		"\")\"": "punctuation",
-		// "char_literal > \"\"\"": "punctuation",
-		// "string_literal > \"\\"": "punctuation",
 	},
 
-	"complexTerms": ["identifier", "attribute"],
+	"complexTerms": ["identifier", "field_identifier"],
 
 	"complexScopes": {
 		"identifier": "variable",
