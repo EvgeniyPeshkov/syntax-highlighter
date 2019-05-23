@@ -3,7 +3,7 @@
 	"displayName": "Syntax Highlighter",
 	"description": "Syntax highlighting based on Tree-sitter",
 	"homepage": "https://github.com/EvgeniyPeshkov/syntax-highlighter",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"publisher": "evgeniypeshkov",
 	"license": "MIT",
 	"icon": "images/syntax.png",
