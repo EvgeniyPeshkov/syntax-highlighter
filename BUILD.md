@@ -28,4 +28,4 @@ You will also need to determine version of Electron that VS Code is built with.
 4. Type `npm install --target=3.1.8 --runtime=electron --disturl=https://atom.io/download/electron`
    to download, install or compile all dependencies. Provide your Electron version in `--target`.
 5. Now you can debug Syntax Highlighter extension as usual by `F5`.
-6. To package extension into .vsix, type `node .\node_modules\vsce\out\vsce package` in terminal.
+6. To package extension into .vsix, type `node ./node_modules/vsce/out/vsce package` in terminal.

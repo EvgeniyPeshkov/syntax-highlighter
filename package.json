@@ -29,8 +29,8 @@
 		"Parser",
 		"C",
 		"C++",
-        "CPP",
-        "Go",
+		"CPP",
+		"Go",
 		"TypeScript",
 		"JavaScript"
 	],
@@ -39,8 +39,8 @@
 	},
 	"activationEvents": [
 		"onLanguage:c",
-        "onLanguage:cpp",
-        "onLanguage:go",
+		"onLanguage:cpp",
+		"onLanguage:go",
 		"onLanguage:typescript",
 		"onLanguage:javascript"
 	],
