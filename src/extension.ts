@@ -21,7 +21,7 @@ class Grammar {
         this.parser.setLanguage(require("tree-sitter-" + lang));
 
         // Grammar
-        const grammarFile = __dirname + "/../src/grammar-" + lang + ".json";
+        const grammarFile = __dirname + "/../grammars/grammar-" + lang + ".json";
         const grammarJson = jsonc.parse(readFileSync(grammarFile).toString());
         for (const t in grammarJson.simpleTerms)
             this.simpleTerms[t] = grammarJson.simpleTerms[t];
