@@ -1,26 +1,24 @@
 import * as vscode from 'vscode';
-import * as parser from 'tree-sitter';
+import * as parser from 'web-tree-sitter';
 import * as jsonc from 'jsonc-parser';
+import * as path from 'path';
 import { clearTimeout } from 'timers';
 import { readFileSync } from 'fs';
 
 // Grammar class
+const parserPromise = parser.init();
 class Grammar {
     // Parser
     readonly lang: string;
-    readonly parser: parser;
+    parser: parser;
     // Grammar
     readonly simpleTerms: { [sym: string]: string } = {};
     readonly complexTerms: string[] = [];
     readonly complexScopes: { [sym: string]: string } = {};
 
     constructor(lang: string) {
-        // Parser
-        this.lang = lang;
-        this.parser = new parser();
-        this.parser.setLanguage(require("tree-sitter-" + lang));
-
         // Grammar
+        this.lang = lang;
         const grammarFile = __dirname + "/../grammars/grammar-" + lang + ".json";
         const grammarJson = jsonc.parse(readFileSync(grammarFile).toString());
         for (const t in grammarJson.simpleTerms)
@@ -30,10 +28,19 @@ class Grammar {
         for (const t in grammarJson.complexScopes)
             this.complexScopes[t] = grammarJson.complexScopes[t];
     }
+
+    async init() {
+        // Parser
+        await parserPromise;
+        this.parser = new parser();
+        let langFile = path.join(__dirname, "../parsers", this.lang + ".wasm");
+        const langObj = await parser.Language.load(langFile);
+        this.parser.setLanguage(langObj);
+    }
 }
 
 // Extension activation
-export function activate(context: vscode.ExtensionContext) {
+export async function activate(context: vscode.ExtensionContext) {
 
     // Syntax trees
     let trees: { [doc: string]: parser.Tree } = {};
@@ -130,7 +137,7 @@ export function activate(context: vscode.ExtensionContext) {
                     let desc = type;
                     let scopes = [desc];
                     let parent = node.parent;
-                    for (let i = 0; i < 2; i++ && parent) {
+                    for (let i = 0; i < 2 && parent; i++) {
                         let parentType = parent.type;
                         if (!parent.isNamed)
                             parentType = '"' + parentType + '"';
@@ -187,14 +194,17 @@ export function activate(context: vscode.ExtensionContext) {
         updateTimer = setTimeout(updateDecor, 20);
     }
 
-    function initTree(doc: vscode.TextDocument) {
+    async function initTree(doc: vscode.TextDocument) {
         const lang = doc.languageId;
         if (!supportedLangs.includes(lang))
             return;
-        if (!(lang in grammars))
+        if (!(lang in grammars)) {
             grammars[lang] = new Grammar(lang);
+            await grammars[lang].init();
+        }
         const uri = doc.uri.toString();
         trees[uri] = grammars[lang].parser.parse(doc.getText());
+        enqueueDecorUpdate();
     }
 
     function updateTree(doc: vscode.TextDocument, edits: parser.Edit[]) {
@@ -215,11 +225,11 @@ export function activate(context: vscode.ExtensionContext) {
     }
 
     for (const doc of vscode.workspace.textDocuments)
-        initTree(doc);
+        await initTree(doc);
     enqueueDecorUpdate();
 
-    vscode.workspace.onDidOpenTextDocument(doc => {
-        initTree(doc);
+    vscode.workspace.onDidOpenTextDocument(async doc => {
+        await initTree(doc);
     }, null, context.subscriptions)
 
     vscode.workspace.onDidCloseTextDocument(doc => {
@@ -285,40 +295,5 @@ export function activate(context: vscode.ExtensionContext) {
         if (needUpdate)
             enqueueDecorUpdate();
     }, null, context.subscriptions);
-
-    // Register debug hover providers. Uncomment to enable
-    // Very useful tool for implementation and fixing of grammars
-    // for (const lang of supportedLangs) {
-    //     vscode.languages.registerHoverProvider(lang, {
-    //         provideHover(doc: vscode.TextDocument, pos: vscode.Position) {
-    //             const uri = doc.uri.toString();
-    //             if (!(uri in trees))
-    //                 return null;
-    //             const xy: parser.Point = { row: pos.line, column: pos.character };
-    //             let node = trees[uri].rootNode.descendantForPosition(xy);
-    //             if (!node)
-    //                 return null;
-
-    //             let type = node.type;
-    //             if (!node.isNamed)
-    //                 type = '"' + type + '"';
-    //             let parent = node.parent;
-    //             for (let i = 0; i < 2; i++ && parent) {
-    //                 let parentType = parent.type;
-    //                 if (!parent.isNamed)
-    //                     parentType = '"' + parentType + '"';
-    //                 type = parentType + " > " + type;
-    //                 parent = parent.parent;
-    //             }
-
-    //             return {
-    //                 contents: [type],
-    //                 range: new vscode.Range(
-    //                     node.startPosition.row, node.startPosition.column,
-    //                     node.endPosition.row, node.endPosition.column)
-    //             };
-    //         }
-    //     });
-    // }
 
 }

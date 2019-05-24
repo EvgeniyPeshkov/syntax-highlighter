@@ -11,12 +11,6 @@ context-aware, it's able to parse complex language structures providing complete
 coverage of source code. Incremental parsing system ensures high performance.
 All these advantages enable accurate and consistent syntax highlighting.
 
-#### **Attention**
-**[Temporarily, extension published in VS Code Marketplace will only work in
-Windows-x64](#distribution). This will be fixed in the near future with one of the
-next updates. For other operating systems, please download precompiled .vsix package
-from [GitHub page](https://github.com/EvgeniyPeshkov/syntax-highlighter/releases).**
-
 #### Languages:
 * C++
 * C
@@ -121,15 +115,6 @@ The following settings synchronize TextMate colors with Syntax Highlighter for C
             ]
         }
     },
-
-## Distribution
-
-Dependence on native Node.js modules currently prevents us from publishing of a cross-platform
-package in VS Code Marketplace. Published version is compatible only with Windows-x64.
-You can download .vsix package for your OS from
-[GitHub repository](https://github.com/EvgeniyPeshkov/syntax-highlighter).
-To install the downloaded extension, execute `Ctrl + Shift + P -> Extensions: Install from VSIX`
-command and select the downloaded file. Currently, versions for Windows-x64 and Linux-x64 are available.
 
 ## [Build](BUILD.md)
 
