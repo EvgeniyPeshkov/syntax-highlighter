@@ -1,4 +1,7 @@
+**/*.ts
+**/*.map
 .vscode/**
 .gitignore
 tslint.json
 tsconfig.json
+scripts/**

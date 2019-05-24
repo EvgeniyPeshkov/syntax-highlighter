@@ -19,7 +19,7 @@ class Grammar {
     constructor(lang: string) {
         // Grammar
         this.lang = lang;
-        const grammarFile = __dirname + "/../grammars/grammar-" + lang + ".json";
+        const grammarFile = __dirname + "/../grammars/" + lang + ".json";
         const grammarJson = jsonc.parse(readFileSync(grammarFile).toString());
         for (const t in grammarJson.simpleTerms)
             this.simpleTerms[t] = grammarJson.simpleTerms[t];
@@ -46,7 +46,7 @@ export async function activate(context: vscode.ExtensionContext) {
     let trees: { [doc: string]: parser.Tree } = {};
 
     // Languages
-    const langsFile = __dirname + "/../src/supported-langs.json";
+    const langsFile = __dirname + "/../grammars/langs.json";
     const langsJson = jsonc.parse(readFileSync(langsFile).toString());
     const supportedLangs: string[] = langsJson["languages"];
     const grammars: { [lang: string]: Grammar } = {};
