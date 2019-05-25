@@ -15,6 +15,8 @@ class Grammar {
     readonly simpleTerms: { [sym: string]: string } = {};
     readonly complexTerms: string[] = [];
     readonly complexScopes: { [sym: string]: string } = {};
+    readonly complexDepth: number;
+    readonly complexOrder: boolean;
 
     constructor(lang: string) {
         // Grammar
@@ -27,6 +29,16 @@ class Grammar {
             this.complexTerms[t] = grammarJson.complexTerms[t];
         for (const t in grammarJson.complexScopes)
             this.complexScopes[t] = grammarJson.complexScopes[t];
+        this.complexDepth = 0;
+        this.complexOrder = false;
+        for (const s in this.complexScopes) {
+            const depth = s.split(">").length;
+            if (depth > this.complexDepth)
+                this.complexDepth = depth;
+            if (s.indexOf("[") >= 0)
+                this.complexOrder = true;
+        }
+        this.complexDepth--;
     }
 
     async init() {
@@ -137,7 +149,7 @@ export async function activate(context: vscode.ExtensionContext) {
                     let desc = type;
                     let scopes = [desc];
                     let parent = node.parent;
-                    for (let i = 0; i < 2 && parent; i++) {
+                    for (let i = 0; i < grammar.complexDepth && parent; i++) {
                         let parentType = parent.type;
                         if (!parent.isNamed)
                             parentType = '"' + parentType + '"';
@@ -145,8 +157,33 @@ export async function activate(context: vscode.ExtensionContext) {
                         scopes.push(desc);
                         parent = parent.parent;
                     }
+                    // If there is also order complexity
+                    if (grammar.complexOrder)
+                    {
+                        let index = 0;
+                        let sibling = node.previousSibling;
+                        while (sibling) {
+                            if (sibling.type === node.type)
+                                index++;
+                            sibling = sibling.previousSibling;
+                        }
+
+                        let rindex = -1;
+                        sibling = node.nextSibling;
+                        while (sibling) {
+                            if (sibling.type === node.type)
+                                rindex--;
+                            sibling = sibling.nextSibling;
+                        }
+
+                        const scopeCount = scopes.length;
+                        for (let i = 0; i < scopeCount; i++) {
+                            scopes.push(scopes[i] + "[" + index + "]");
+                            scopes.push(scopes[i] + "[" + rindex + "]");
+                        }
+                    }
                     // Use most complex scope
-                    for (let d of scopes)
+                    for (const d of scopes)
                         if (d in grammar.complexScopes)
                             color = grammar.complexScopes[d];
                 }
