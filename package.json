@@ -3,7 +3,7 @@
 	"displayName": "Syntax Highlighter",
 	"description": "Syntax highlighting based on Tree-sitter",
 	"homepage": "https://github.com/EvgeniyPeshkov/syntax-highlighter",
-	"version": "0.2.0",
+	"version": "0.2.1",
 	"publisher": "evgeniypeshkov",
 	"license": "MIT",
 	"icon": "images/syntax.png",
@@ -30,9 +30,10 @@
 		"C",
 		"C++",
 		"CPP",
-		"Go",
+		"Python",
 		"TypeScript",
-		"JavaScript"
+		"JavaScript",
+		"Go"
 	],
 	"engines": {
 		"vscode": "^1.15.0"
@@ -40,6 +41,7 @@
 	"activationEvents": [
 		"onLanguage:c",
 		"onLanguage:cpp",
+		"onLanguage:python",
 		"onLanguage:go",
 		"onLanguage:typescript",
 		"onLanguage:javascript"
@@ -60,13 +62,15 @@
 		"tslint": "^5.16.0",
 		"typescript": "^3.4.5",
 		"vscode": "^1.1.34",
-		"vsce": "^1.61.0",
+		"vsce": "^1.62.0",
 		"tree-sitter": "^0.15.1",
-		"tree-sitter-c": "^0.13.13",
+		"tree-sitter-cli": "^0.14.7",
 		"tree-sitter-cpp": "^0.13.3",
-		"tree-sitter-go": "",
+		"tree-sitter-c": "^0.13.13",
+		"tree-sitter-python": "^0.14.0",
 		"tree-sitter-typescript": "^0.13.6",
-		"tree-sitter-javascript": "^0.13.10"
+		"tree-sitter-javascript": "^0.13.10",
+		"tree-sitter-go": "^0.13.3"
 	},
 	"contributes": {
 		"colors": [

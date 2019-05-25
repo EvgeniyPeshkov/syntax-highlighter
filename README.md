@@ -14,9 +14,10 @@ All these advantages enable accurate and consistent syntax highlighting.
 #### Languages:
 * C++
 * C
-* Go
+* Python
 * TypeScript
 * JavaScript
+* Go
 * More to come upon contribution
 
 ## Customization

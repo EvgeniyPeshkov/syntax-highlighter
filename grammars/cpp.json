@@ -54,7 +54,8 @@
 		"\"switch\"": "keyword_control",
 		"\"case\"": "keyword_control",
 		"\"default\"": "keyword_control",
-		"\"goto\"": "keyword_control",
+        "\"goto\"": "keyword_control",
+
 		"\"struct\"": "keyword_control",
 		"\"enum\"": "keyword_control",
 		"\"union\"": "keyword_control",
