@@ -5,7 +5,9 @@
 		"\"signed\"": "types",
 		"\"unsigned\"": "types",
 		"\"short\"": "types",
-		"\"long\"": "types",
+        "\"long\"": "types",
+
+        "statement_identifier": "variable",
 
 		"auto": "storage_modifier",
 		"\"extern\"": "storage_modifier",
@@ -18,10 +20,7 @@
 		"\"_Atomic\"": "storage_modifier",
 		"function_specifier": "storage_modifier",
 
-		"statement_identifier": "variable",
-
 		"number_literal": "number",
-
 		"char_literal": "string",
 		"string_literal": "string",
 		"system_lib_string": "string",

@@ -1,15 +1,6 @@
 # Syntax Highlighter for VSCode
 
-Syntax highlighter based on [Tree-Sitter](https://tree-sitter.github.io/tree-sitter/).
-
-Provides universal syntax coloring engine for almost any programming language.
-See [list of currently supported languages](#languages) below. Under the hood
-the extension utilizes VSCode Decoration API to override syntax coloring provided
-by standard TextMate regex matching. Constructing entire syntax tree, Tree-sitter
-efficiently overcomes all limitations of built-in TextMate grammars. Being
-context-aware, it's able to parse complex language structures providing complete
-coverage of source code. Incremental parsing system ensures high performance.
-All these advantages enable accurate and consistent syntax highlighting.
+#### Syntax highlighter based on [Tree-Sitter](https://tree-sitter.github.io/tree-sitter/).
 
 #### Languages:
 * C++
@@ -18,7 +9,19 @@ All these advantages enable accurate and consistent syntax highlighting.
 * TypeScript
 * JavaScript
 * Go
-* More to come upon contribution
+* Rust
+* More to come...
+
+#### Description
+
+Provides universal syntax coloring engine for almost any programming language.
+See [list of currently supported languages](#languages) above. Under the hood
+the extension utilizes VSCode Decoration API to override syntax coloring provided
+by standard TextMate regex matching. Constructing entire syntax tree, Tree-sitter
+efficiently overcomes all limitations of built-in TextMate grammars. Being
+context-aware, it's able to parse complex language structures providing complete
+coverage of source code. Incremental parsing system ensures high performance.
+All these advantages enable accurate and consistent syntax highlighting.
 
 ## Customization
 

@@ -176,11 +176,11 @@ export async function activate(context: vscode.ExtensionContext) {
                             sibling = sibling.nextSibling;
                         }
 
-                        const scopeCount = scopes.length;
-                        for (let i = 0; i < scopeCount; i++) {
-                            scopes.push(scopes[i] + "[" + index + "]");
-                            scopes.push(scopes[i] + "[" + rindex + "]");
-                        }
+                        let orderScopes: string[] = [];
+                        for (let i = 0; i < scopes.length; i++)
+                            orderScopes.push(scopes[i], scopes[i] + "[" + index + "]",
+                                                        scopes[i] + "[" + rindex + "]");
+                        scopes = orderScopes;
                     }
                     // Use most complex scope
                     for (const d of scopes)

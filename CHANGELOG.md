@@ -1,11 +1,15 @@
 # Syntax Highlighter Change Log
 
-## Version 0.2.1
-### New programming languages:
+## **Version 0.2.2**
+#### New programming languages:
+* Rust
+
+## **Version 0.2.1**
+#### New programming languages:
 * Python
 
 
-## Version 0.2.0
+## **Version 0.2.0**
 ### **Cross-platform support.**
 **Huge thanks to [@jeff-hykin](https://github.com/jeff-hykin) for providing the right solution.**
 
@@ -14,12 +18,12 @@ There is no need to download .vsxi package for your OS from
 Cross-platform version in Marketplace fits any OS and architecture.
 
 
-## Version 0.1.1
-### New programming languages:
+## **Version 0.1.1**
+#### New programming languages:
 * Go
 * TypeScript
 * JavaScript
 
 
-## Version 0.1.0
+## **Version 0.1.0**
 ### Initial version

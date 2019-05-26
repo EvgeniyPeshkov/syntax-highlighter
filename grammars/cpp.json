@@ -6,7 +6,9 @@
 		"\"signed\"": "type",
 		"\"short\"": "type",
 		"\"long\"": "type",
-		"\"auto\"": "type",
+        "\"auto\"": "type",
+
+        "namespace_identifier": "namespace",
 
 		"\"extern\"": "storage_modifier",
 		"\"static\"": "storage_modifier",
@@ -26,10 +28,7 @@
 		"\"override\"": "storage_modifier",
 		"function_specifier": "storage_modifier",
 
-		"namespace_identifier": "namespace",
-
 		"number_literal": "number",
-
 		"char_literal": "string",
 		"string_literal": "string",
 		"system_lib_string": "string",
