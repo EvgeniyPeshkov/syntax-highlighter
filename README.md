@@ -130,8 +130,6 @@ of Node.js. Refer to [BUILD.md](BUILD.md) for instructions.
 ## [Contribute](CONTRIBUTE.md)
 
 The best way to contribute is to implement support of new languages. Extension
-improvements are also welcome. The first thing on ToDo list is to improve
-[distribution and packaging](#distribution) which are complicated by native
-modules. Refer to [CONTRIBUTE.md](CONTRIBUTE.md) for details.
+improvements are also welcome. Refer to [CONTRIBUTE.md](CONTRIBUTE.md) for details.
 
 ## [ToDo](TODO.md)

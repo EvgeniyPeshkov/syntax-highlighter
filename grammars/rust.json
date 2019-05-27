@@ -1,10 +1,9 @@
 {
 	"simpleTerms": {
 
-        "type_identifier": "type",
         "primitive_type": "type",
 
-        "attribute_item": "variable",
+        // "attribute_item": "variable",
         "inner_attribute_item": "variable",
         "shorthand_field_identifier": "variable",
 
@@ -56,7 +55,6 @@
 
 		".": "keyword_operator",
 		"->": "keyword_operator",
-		"*": "keyword_operator",
 		"-": "keyword_operator",
 		"+": "keyword_operator",
 		"/": "keyword_operator",
@@ -94,38 +92,47 @@
         "as": "keyword_operator",
 
         "use": "keyword_directive",
+        "#": "keyword_directive",
 
         ";": "punctuation",
 		":": "punctuation",
 		",": "punctuation",
-		"[": "punctuation",
-		"]": "punctuation",
         "{": "punctuation",
         "}": "punctuation",
-        "(": "punctuation",
-		")": "punctuation",
 	},
 
-	"complexTerms": ["identifier", "field_identifier", "self", "super", "crate"],
+    "complexTerms": [
+        "identifier", "field_identifier", "type_identifier",
+        "self", "super", "crate",
+        "(", ")", "[", "]", "*"],
 
 	"complexScopes": {
-        "use_wildcard > identifier[0]": "type",
-        "scoped_type_identifier > identifier": "type",
-        "scoped_type_identifier > scoped_identifier > identifier": "type",
-        "scoped_identifier > identifier": "type",
-        "scoped_identifier > scoped_identifier > identifier": "type",
+        "type_identifier": "type",
+        "scoped_type_identifier > type_identifier": "type",
+        "scoped_identifier > identifier[-1]": "type",
         "use_declaration > identifier": "type",
-        "use_declaration > scoped_identifier > identifier": "type",
         "use_list > identifier": "type",
         "use_list > scoped_identifier > identifier": "type",
-        "meta_item > identifier": "type",
+        "use_wildcard > *": "type",
+        "use_as_clause > identifier": "type",
         "tuple_struct_pattern > identifier": "type",
+        "enum_variant > identifier": "type",
+
+        "scoped_identifier > identifier": "namespace",
+        "scoped_type_identifier > identifier": "namespace",
+        "scoped_type_identifier > scoped_identifier > identifier": "namespace",
+        "scoped_identifier > scoped_identifier > identifier": "namespace",
+        "scoped_use_list > scoped_identifier > identifier": "namespace",
+        "scoped_use_list > identifier": "namespace",
+        "use_wildcard > scoped_identifier > identifier": "namespace",
+        "use_wildcard > identifier": "namespace",
+        "struct_pattern > scoped_type_identifier > identifier": "namespace",
+        "struct_expression > scoped_type_identifier > identifier": "namespace",
 
 		"identifier": "variable",
         "field_identifier": "variable",
         "self": "variable",
         "super": "variable",
-        "scoped_identifier > identifier[-1]": "variable",
 
         "call_expression > identifier": "function",
         "call_expression > field_expression > field_identifier[-1]": "function",
@@ -140,6 +147,8 @@
 
         "lifetime > identifier": "storage_modifier",
 
+        "meta_item > identifier": "keyword_directive",
+
         "use_list > self": "keyword_operator",
         "scoped_use_list > self": "keyword_operator",
         "scoped_identifier > self": "keyword_operator",
@@ -149,6 +158,16 @@
         "use_list > super": "keyword_operator",
         "scoped_use_list > super": "keyword_operator",
         "scoped_identifier > super": "keyword_operator",
+
+        "*": "keyword_operator",
+        "(": "punctuation",
+        ")": "punctuation",
+        "[": "punctuation",
+        "]": "punctuation",
+        "unit_expression > (": "keyword_constant",
+        "unit_expression > )": "keyword_constant",
+        "attribute_item > [": "keyword_directive",
+        "attribute_item > ]": "keyword_directive",
 
 	},
 
