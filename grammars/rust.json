@@ -3,7 +3,6 @@
 
         "primitive_type": "type",
 
-        // "attribute_item": "variable",
         "inner_attribute_item": "variable",
         "shorthand_field_identifier": "variable",
 
@@ -26,7 +25,6 @@
         "trait": "storage_modifier",
         "mod": "storage_modifier",
         "pub": "storage_modifier",
-        "crate": "storage_modifier",
         "default": "storage_modifier",
         "ref": "storage_modifier",
         "mutable_specifier": "storage_modifier",
@@ -52,6 +50,10 @@
         "break": "keyword_control",
         "where": "keyword_control",
         "macro_rules!": "keyword_control",
+
+        "self": "keyword_control",
+        "super": "keyword_control",
+        "crate": "keyword_control",
 
 		".": "keyword_operator",
 		"->": "keyword_operator",
@@ -88,7 +90,8 @@
 		"^=": "keyword_operator",
 		"|=": "keyword_operator",
 		"?": "keyword_operator",
-		"::": "keyword_operator",
+        "::": "keyword_operator",
+        "..": "keyword_operator",
         "as": "keyword_operator",
 
         "use": "keyword_directive",
@@ -103,7 +106,6 @@
 
     "complexTerms": [
         "identifier", "field_identifier", "type_identifier",
-        "self", "super", "crate",
         "(", ")", "[", "]", "*"],
 
 	"complexScopes": {
@@ -117,6 +119,8 @@
         "use_as_clause > identifier": "type",
         "tuple_struct_pattern > identifier": "type",
         "enum_variant > identifier": "type",
+        "unit_type > (": "type",
+        "unit_type > )": "type",
 
         "scoped_identifier > identifier": "namespace",
         "scoped_type_identifier > identifier": "namespace",
@@ -131,8 +135,6 @@
 
 		"identifier": "variable",
         "field_identifier": "variable",
-        "self": "variable",
-        "super": "variable",
 
         "call_expression > identifier": "function",
         "call_expression > field_expression > field_identifier[-1]": "function",
@@ -148,16 +150,6 @@
         "lifetime > identifier": "storage_modifier",
 
         "meta_item > identifier": "keyword_directive",
-
-        "use_list > self": "keyword_operator",
-        "scoped_use_list > self": "keyword_operator",
-        "scoped_identifier > self": "keyword_operator",
-        "use_list > crate": "keyword_operator",
-        "scoped_use_list > crate": "keyword_operator",
-        "scoped_identifier > crate": "keyword_operator",
-        "use_list > super": "keyword_operator",
-        "scoped_use_list > super": "keyword_operator",
-        "scoped_identifier > super": "keyword_operator",
 
         "*": "keyword_operator",
         "(": "punctuation",

@@ -1,5 +1,9 @@
 # Syntax Highlighter Change Log
 
+## **Version 0.2.4**
+#### Even better Rust
+Thanks to [@Geobert](https://github.com/Geobert) ones again.
+
 ## **Version 0.2.3**
 #### Much better Rust
 Huge thanks to [@Geobert](https://github.com/Geobert) for contribution.
