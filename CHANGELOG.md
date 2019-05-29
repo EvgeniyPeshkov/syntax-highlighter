@@ -1,5 +1,11 @@
 # Syntax Highlighter Change Log
 
+## **Version 0.2.5**
+#### Fixed bugs:
+* Terms like directives and operators stopped to be colored by {Syntax Highlighter}
+* Highlighting is not updated in editors, opened on startup, until switch tab
+
+
 ## **Version 0.2.4**
 #### Even better Rust
 Thanks to [@Geobert](https://github.com/Geobert) ones again.
