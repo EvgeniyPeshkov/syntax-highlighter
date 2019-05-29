@@ -4,6 +4,7 @@
 #### Even better Rust
 Thanks to [@Geobert](https://github.com/Geobert) ones again.
 
+
 ## **Version 0.2.3**
 #### Much better Rust
 Huge thanks to [@Geobert](https://github.com/Geobert) for contribution.
@@ -12,6 +13,7 @@ Huge thanks to [@Geobert](https://github.com/Geobert) for contribution.
 ## **Version 0.2.2**
 #### New programming languages:
 * Rust
+
 
 ## **Version 0.2.1**
 #### New programming languages:
