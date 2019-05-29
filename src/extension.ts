@@ -257,6 +257,8 @@ export async function activate(context: vscode.ExtensionContext) {
             enqueueDecorUpdate();
     }
 
+
+    // Create trees for already opened documents
     for (const doc of vscode.workspace.textDocuments)
         await initTree(doc);
     enqueueDecorUpdate();
@@ -301,6 +303,16 @@ export async function activate(context: vscode.ExtensionContext) {
 
         updateTree(event.document, changes);
     }, null, context.subscriptions);
+
+
+    // Enumerate already visible editors
+    visibleEditors = vscode.window.visibleTextEditors;
+    visibleUris = [];
+    for (const e of visibleEditors) {
+        const uri = e.document.uri.toString();
+        if (!visibleUris.includes(uri))
+            visibleUris.push(uri);
+    }
 
     vscode.window.onDidChangeVisibleTextEditors(editors => {
         // Flag refresh for new editors
