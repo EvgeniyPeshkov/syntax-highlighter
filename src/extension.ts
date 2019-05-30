@@ -1,9 +1,9 @@
 import * as vscode from 'vscode';
 import * as parser from 'web-tree-sitter';
 import * as jsonc from 'jsonc-parser';
+import * as fs from 'fs';
 import * as path from 'path';
 import { clearTimeout } from 'timers';
-import { readFileSync } from 'fs';
 
 // Grammar class
 const parserPromise = parser.init();
@@ -22,7 +22,7 @@ class Grammar {
         // Grammar
         this.lang = lang;
         const grammarFile = __dirname + "/../grammars/" + lang + ".json";
-        const grammarJson = jsonc.parse(readFileSync(grammarFile).toString());
+        const grammarJson = jsonc.parse(fs.readFileSync(grammarFile).toString());
         for (const t in grammarJson.simpleTerms)
             this.simpleTerms[t] = grammarJson.simpleTerms[t];
         for (const t in grammarJson.complexTerms)
@@ -58,17 +58,29 @@ export async function activate(context: vscode.ExtensionContext) {
     let trees: { [doc: string]: parser.Tree } = {};
 
     // Languages
-    const langsFile = __dirname + "/../grammars/langs.json";
-    const langsJson = jsonc.parse(readFileSync(langsFile).toString());
-    const supportedLangs: string[] = langsJson["languages"];
+    let availableGrammars: string[] = [];
+    fs.readdirSync(__dirname + "/../grammars/").forEach(name => {
+        availableGrammars.push(path.basename(name, ".json"));
+    });
+
+    let availableParsers: string[] = [];
+    fs.readdirSync(__dirname + "/../parsers/").forEach(name => {
+        availableParsers.push(path.basename(name, ".wasm"));
+    });
+
     const grammars: { [lang: string]: Grammar } = {};
+    let supportedLangs: string[] = [];
+    availableGrammars.forEach(lang => {
+        if (availableParsers.includes(lang))
+            supportedLangs.push(lang);
+    });
+
 
     // Term colors
     const supportedTerms: string[] = [
-        "type", "namespace", "function", "variable", "string", "number",
-        "punctuation", "comment", "keyword_constant", "keyword_directive",
-        "keyword_control", "keyword_operator", "storage_modifier",
-    ]
+        "type", "scope", "function", "variable", "number", "string", "comment",
+        "constant", "directive", "control", "operator", "modifier", "punctuation",
+    ];
     // Decoration definitions
     const highlightDecors: { [color: string]: vscode.TextEditorDecorationType } = {};
     for (const c of supportedTerms)
@@ -82,7 +94,7 @@ export async function activate(context: vscode.ExtensionContext) {
     // Timer to schedule decoration update and refresh
     let updateTimer: NodeJS.Timer | undefined = undefined;
     let refreshTimer: NodeJS.Timer | undefined = undefined;
-    console.log('Syntax Highlighter has been activated');
+    console.log('{Syntax Highlighter} has been activated');
 
     let visibleEditors = vscode.window.visibleTextEditors;
     let visibleUris: string[] = [];
