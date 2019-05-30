@@ -38,18 +38,18 @@ the following into `settings.json`:
     "workbench.colorCustomizations": {
         "[Visual Studio Dark]": {
             "syntax.type": "#26A69A",
-            "syntax.namespace": "#00897B",
+            "syntax.scope": "#00897B",
             "syntax.function": "#00BCD4",
             "syntax.variable": "#42A5F5",
-            "syntax.string": "#90A4AE",
             "syntax.number": "#90A4AE",
-            "syntax.punctuation": "#A1887F",
+            "syntax.string": "#90A4AE",
             "syntax.comment": "#546E7A",
-            "syntax.keyword_constant": "#A89F9B",
-            "syntax.keyword_directive": "#7E57C2",
-            "syntax.keyword_control": "#7986CB",
-            "syntax.keyword_operator": "#9575CD",
-            "syntax.storage_modifier": "#00897B"
+            "syntax.constant": "#A89F9B",
+            "syntax.directive": "#7E57C2",
+            "syntax.control": "#7986CB",
+            "syntax.operator": "#9575CD",
+            "syntax.modifier": "#00897B",
+            "syntax.punctuation": "#A1887F",
         }
     },
 
@@ -66,6 +66,7 @@ The following settings synchronize TextMate colors with Syntax Highlighter for C
             "types": "#26A69A",
             "functions": "#00BCD4",
             "variables": "#42A5F5",
+            "numbers": "#90A4AE",
             "strings": "#90A4AE",
             "comments": "#546E7A",
             "keywords": "#7986CB",
@@ -86,16 +87,12 @@ The following settings synchronize TextMate colors with Syntax Highlighter for C
                     "settings": {"foreground": "#42A5F5"}
                 },
                 {
-                    "scope": "punctuation",
-                    "settings": {"foreground": "#A1887F"}
+                    "scope": "constant.numeric",
+                    "settings": {"foreground": "#90A4AE"}
                 },
                 {
                     "scope": "comment",
                     "settings": {"foreground": "#546E7A"}
-                },
-                {
-                    "scope": "constant.numeric",
-                    "settings": {"foreground": "#90A4AE"}
                 },
                 {
                     "scope": [
@@ -116,6 +113,10 @@ The following settings synchronize TextMate colors with Syntax Highlighter for C
                     "scope": "storage.modifier",
                     "settings": {"foreground": "#00897B"}
                 },
+                {
+                    "scope": "punctuation",
+                    "settings": {"foreground": "#A1887F"}
+                },
             ]
         }
     },
@@ -127,7 +128,7 @@ They are [native Node.js modules](https://nodejs.org/api/addons.html)
 that require a compilation for particular architecture, OS and version
 of Node.js. Refer to [BUILD.md](BUILD.md) for instructions.
 
-## [Contribute](CONTRIBUTE.md)
+## [Contribute](CONTRIBUTING.md)
 
 The best way to contribute is to implement support of new languages. Extension
 improvements are also welcome. Refer to [CONTRIBUTE.md](CONTRIBUTE.md) for details.

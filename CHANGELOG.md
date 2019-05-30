@@ -1,5 +1,23 @@
 # Syntax Highlighter Change Log
 
+## **Version 0.2.6**
+#### Changes:
+* More consistent names of syntax terms
+* Internal improvements
+
+#### !!!Attention!!!
+This release changes names of some syntax terms.
+I apologize to all current users, who has already tuned colors, for this inconvenience.
+
+Please rename {Syntax Highlighter} colors in `settings.json` the following way:
+* `"syntax.namespace" -> "syntax.scope"`
+* `"syntax.keyword_constant" -> "syntax.constant"`
+* `"syntax.keyword_directive" -> "syntax.directive"`
+* `"syntax.keyword_control" -> "syntax.control"`
+* `"syntax.keyword_operator" -> "syntax.operator"`
+* `"syntax.storage_modifier" -> "syntax.modifier"`
+
+
 ## **Version 0.2.5**
 #### Fixed bugs:
 * Terms like directives and operators stopped to be colored by {Syntax Highlighter}

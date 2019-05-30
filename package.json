@@ -79,7 +79,7 @@
 		"colors": [
 			{
 				"id": "syntax.type",
-				"description": "Color for types",
+				"description": "Color for types (class, struct, enum)",
 				"defaults": {
 					"dark": "#26A69A",
 					"light": "#26A69A",
@@ -87,8 +87,8 @@
 				}
 			},
 			{
-				"id": "syntax.namespace",
-				"description": "Color for namespaces",
+				"id": "syntax.scope",
+				"description": "Color for scopes (namespace, module, outer class)",
 				"defaults": {
 					"dark": "#00897B",
 					"light": "#00897B",
@@ -97,7 +97,7 @@
 			},
 			{
 				"id": "syntax.function",
-				"description": "Color for functions and methods",
+				"description": "Color for functions (function, method, interface)",
 				"defaults": {
 					"dark": "#00BCD4",
 					"light": "#00BCD4",
@@ -106,7 +106,7 @@
 			},
 			{
 				"id": "syntax.variable",
-				"description": "Color for variables and fields",
+				"description": "Color for variables (variable, field, property)",
 				"defaults": {
 					"dark": "#42A5F5",
 					"light": "#42A5F5",
@@ -115,7 +115,7 @@
 			},
 			{
 				"id": "syntax.string",
-				"description": "Color for string literals",
+				"description": "Color for strings (string, regex, char)",
 				"defaults": {
 					"dark": "#90A4AE",
 					"light": "#90A4AE",
@@ -124,7 +124,7 @@
 			},
 			{
 				"id": "syntax.number",
-				"description": "Color for number literals",
+				"description": "Color for numbers (10, 10.0f)",
 				"defaults": {
 					"dark": "#90A4AE",
 					"light": "#90A4AE",
@@ -133,7 +133,7 @@
 			},
 			{
 				"id": "syntax.punctuation",
-				"description": "Color for punctuation symbols",
+				"description": "Color for punctuation (., :, {)",
 				"defaults": {
 					"dark": "#A1887F",
 					"light": "#A1887F",
@@ -150,8 +150,8 @@
 				}
 			},
 			{
-				"id": "syntax.keyword_constant",
-				"description": "Color for language constants (true, nullptr)",
+				"id": "syntax.constant",
+				"description": "Color for constants (true, nullptr, nil)",
 				"defaults": {
 					"dark": "#A89F9B",
 					"light": "#A89F9B",
@@ -159,8 +159,8 @@
 				}
 			},
 			{
-				"id": "syntax.keyword_directive",
-				"description": "Color for directive keywords (#include, import)",
+				"id": "syntax.directive",
+				"description": "Color for directives (#include, import, use)",
 				"defaults": {
 					"dark": "#7E57C2",
 					"light": "#7E57C2",
@@ -168,8 +168,8 @@
 				}
 			},
 			{
-				"id": "syntax.keyword_control",
-				"description": "Color for control flow keywords (if, continue)",
+				"id": "syntax.control",
+				"description": "Color for control flow (if, continue, return)",
 				"defaults": {
 					"dark": "#7986CB",
 					"light": "#7986CB",
@@ -177,8 +177,8 @@
 				}
 			},
 			{
-				"id": "syntax.keyword_operator",
-				"description": "Color for operators (+=, ->)",
+				"id": "syntax.operator",
+				"description": "Color for operators (+=, ->, ::)",
 				"defaults": {
 					"dark": "#9575CD",
 					"light": "#9575CD",
@@ -186,8 +186,8 @@
 				}
 			},
 			{
-				"id": "syntax.storage_modifier",
-				"description": "Color for storage modifiers (const, public)",
+				"id": "syntax.modifier",
+				"description": "Color for modifiers (const, public, override)",
 				"defaults": {
 					"dark": "#00897B",
 					"light": "#00897B",
