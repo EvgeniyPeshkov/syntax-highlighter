@@ -42,7 +42,6 @@ declare module "web-tree-sitter" {
         export interface SyntaxNode {
             tree: Tree;
             type: string;
-            isNamed: boolean;
             text: string;
             startPosition: Point;
             endPosition: Point;
@@ -62,6 +61,7 @@ declare module "web-tree-sitter" {
             previousSibling: SyntaxNode | null;
             previousNamedSibling: SyntaxNode | null;
 
+            isNamed(): boolean;
             hasChanges(): boolean;
             hasError(): boolean;
             isMissing(): boolean;

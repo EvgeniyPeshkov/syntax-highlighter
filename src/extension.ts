@@ -147,6 +147,8 @@ export async function activate(context: vscode.ExtensionContext) {
             else {
                 node = stack.pop();
                 let type = node.type;
+                if (!node.isNamed())
+                    type = '"' + type + '"';
 
                 // Simple one-level terms
                 let color: string | undefined = undefined;
@@ -161,6 +163,8 @@ export async function activate(context: vscode.ExtensionContext) {
                     let parent = node.parent;
                     for (let i = 0; i < grammar.complexDepth && parent; i++) {
                         let parentType = parent.type;
+                        if (!parent.isNamed())
+                            parentType = '"' + parentType + '"';
                         desc = parentType + " > " + desc;
                         scopes.push(desc);
                         parent = parent.parent;
