@@ -1,0 +1,89 @@
+{
+    "simpleTerms": {
+
+        "method": "function",
+
+        "\"local\"": "modifier",
+        "\"function\"": "modifier",
+
+        "number": "number",
+        "string": "string",
+        "comment": "comment",
+
+        "true": "constant",
+        "false": "constant",
+        "nil": "constant",
+        "global_variable": "constant",
+
+        "\"while\"": "control",
+        "\"do\"": "control",
+        "\"until\"": "control",
+        "\"break\"": "control",
+        "\"for\"": "control",
+        "\"if\"": "control",
+        "\"else\"": "control",
+        "\"elseif\"": "control",
+        "\"then\"": "control",
+        "\"end\"": "control",
+        "\"goto\"": "control",
+        "\"repeat\"": "control",
+        "\"return\"": "control",
+
+        "self": "operator",
+        "\"and\"": "operator",
+        "\"or\"": "operator",
+        "\"not\"": "operator",
+        "\"in\"": "operator",
+        "\"next\"": "operator",
+        "\"spread\"": "operator",
+
+        "\"+\"": "operator",
+        "\"-\"": "operator",
+        "\"*\"": "operator",
+        "\"/\"": "operator",
+        "\"%\"": "operator",
+        "\"^\"": "operator",
+        "\"#\"": "operator",
+        "\"&\"": "operator",
+        "\"~\"": "operator",
+        "\"|\"": "operator",
+        "\"//\"": "operator",
+        "\"<<\"": "operator",
+        "\">>\"": "operator",
+        "\"==\"": "operator",
+        "\"~=\"": "operator",
+        "\"<=\"": "operator",
+        "\">=\"": "operator",
+        "\"<\"": "operator",
+        "\">\"": "operator",
+        "\"=\"": "operator",
+        "\"::\"": "operator",
+        "\":\"": "operator",
+        "\".\"": "operator",
+        "\"..\"": "operator",
+
+        "\"{\"": "punctuation",
+        "\"}\"": "punctuation",
+        "\"[\"": "punctuation",
+        "\"]\"": "punctuation",
+        "\"(\"": "punctuation",
+        "\")\"": "punctuation",
+        "\";\"": "punctuation",
+        "\",\"": "punctuation",
+    },
+
+    "complexTerms": ["identifier", "property_identifier"],
+
+    "complexScopes": {
+        "identifier": "variable",
+        "property_identifier": "variable",
+
+        "function_call > identifier": "function",
+        "function_call > property_identifier": "function",
+        "function_name > identifier": "function",
+        "function_name > property_identifier": "function",
+        "local_function > identifier": "function",
+
+    }
+
+}

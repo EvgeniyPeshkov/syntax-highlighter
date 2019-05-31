@@ -11,6 +11,7 @@
 * Go
 * Rust
 * Php
+* Lua
 * More to come...
 
 #### Description

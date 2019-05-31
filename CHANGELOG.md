@@ -1,6 +1,10 @@
 # Syntax Highlighter Change Log
 
-## **Version 0.2.7*
+## **Version 0.2.8**
+#### New programming languages:
+* Lua
+
+## **Version 0.2.7**
 #### New programming languages:
 * PHP
 
