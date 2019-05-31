@@ -1,6 +1,16 @@
 # Syntax Highlighter Change Log
 
 ## **Version 0.2.6**
+#### New programming languages:
+* PHP
+
+#### Fixes:
+* TypeScript and Javascript highlighting has been fixed
+* In Rust "_" is highlighted as variable
+* Internal improvements
+
+
+## **Version 0.2.6**
 #### Changes:
 * More consistent names of syntax terms
 * Internal improvements
