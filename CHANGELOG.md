@@ -1,6 +1,6 @@
 # Syntax Highlighter Change Log
 
-## **Version 0.2.6**
+## **Version 0.2.7*
 #### New programming languages:
 * PHP
 

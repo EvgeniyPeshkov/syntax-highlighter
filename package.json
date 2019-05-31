@@ -9,7 +9,7 @@
 	"icon": "images/syntax.png",
 	"galleryBanner": {
 		"color": "#263238",
-		"theme": "light"
+		"theme": "dark"
 	},
 	"repository": {
 		"url": "https://github.com/EvgeniyPeshkov/syntax-highlighter"
@@ -39,7 +39,7 @@
 		"JavaScript",
 		"Go",
 		"Rust",
-		"PHP"
+		"Php"
 	],
 	"engines": {
 		"vscode": "^1.15.0"
