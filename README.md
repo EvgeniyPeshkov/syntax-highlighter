@@ -27,7 +27,7 @@ All these advantages enable accurate and consistent syntax highlighting.
 
 ## Customization
 
-Syntax Highlighter exposes a number of settings to assign theme colors to syntax terms.
+{Syntax Highlighter} exposes a number of settings to assign theme colors to syntax terms.
 For simple and straightforward customization, we keep a number of syntax terms small,
 namely: *type*, *function*, *variable*, *string*, *number*, *comment*, an some others.
 They are presented under `syntax` sub-section of
@@ -57,11 +57,11 @@ the following into `settings.json`:
 
 For consistency with built-in TextMate grammars, the same colors can be provided
 for corresponding TextMate scopes. Or backwards, one can port colors from TextMate
-to Syntax Highlighter. In most cases there is one to one match. For example, for
+to {Syntax Highlighter}. In most cases there is one to one match. For example, for
 C++: `syntax.function = entity.name.function` or `syntax.number = constant.numeric`.
 Current TextMate colors can be discovered using `Ctrl + Shift + P -> Developer:
 Generate Color Theme...`, in generated theme file address `tokenColors` section.
-The following settings synchronize TextMate colors with Syntax Highlighter for C++:
+The following settings synchronize TextMate colors with {Syntax Highlighter} for C++:
 
     "editor.tokenColorCustomizations": {
         "[Visual Studio Dark]": {
@@ -123,9 +123,19 @@ The following settings synchronize TextMate colors with Syntax Highlighter for C
         }
     },
 
+## Settings
+#### `syntax.highlightComment`
+Enable/disable highlighting of comments.
+
+This setting is useful, when you have other extensions, providing colorization within
+comments. For example, highlighting of ToDo-like tags or documentation syntax, like
+Doxygen or Sphinx. To not overwrite their colorization you can disable highlighting of
+comments, putting `"syntax.highlightComment": false,` in your `settings.json`.
+
+
 ## [Build](BUILD.md)
 
-Syntax Highlighter extension depends on certain Tree-sitter modules.
+{Syntax Highlighter} extension depends on certain Tree-sitter modules.
 They are [native Node.js modules](https://nodejs.org/api/addons.html)
 that require a compilation for particular architecture, OS and version
 of Node.js. Refer to [BUILD.md](BUILD.md) for instructions.

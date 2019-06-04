@@ -81,6 +81,9 @@ export async function activate(context: vscode.ExtensionContext) {
         "type", "scope", "function", "variable", "number", "string", "comment",
         "constant", "directive", "control", "operator", "modifier", "punctuation",
     ];
+    if (!vscode.workspace.getConfiguration("syntax").get("highlightComment"))
+        supportedTerms.splice(supportedTerms.indexOf("comment"), 1);
+
     // Decoration definitions
     const highlightDecors: { [color: string]: vscode.TextEditorDecorationType } = {};
     for (const c of supportedTerms)
