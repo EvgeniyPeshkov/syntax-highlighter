@@ -1,8 +1,16 @@
 # Syntax Highlighter Change Log
 
+## **Version 0.2.9**
+#### Changes:
+* Fix corruption of highlighting on multi-line edits (including formatting and renaming)
+* `syntax.highlightComment` setting to optionally disable highlighting of comments
+* Update dependency packages
+
+
 ## **Version 0.2.8**
 #### New programming languages:
 * Lua
+
 
 ## **Version 0.2.7**
 #### New programming languages:
