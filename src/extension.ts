@@ -259,16 +259,14 @@ export async function activate(context: vscode.ExtensionContext) {
         enqueueDecorUpdate();
     }
 
-    function updateTree(doc: vscode.TextDocument, edits: parser.Edit[]) {
+    function updateTree(doc: vscode.TextDocument) {
         const uri = doc.uri.toString();
         const lang = doc.languageId;
         if (!(uri in trees))
             return;
 
         // Update tree
-        for (const e of edits)
-            trees[uri].edit(e);
-        trees[uri] = grammars[lang].parser.parse(doc.getText(), trees[uri])
+        trees[uri] = grammars[lang].parser.parse(doc.getText())
 
         // Invalidate decoration cache and enqueue update
         delete decorCache[uri];
@@ -300,27 +298,7 @@ export async function activate(context: vscode.ExtensionContext) {
             return;
         if (event.contentChanges.length < 1)
             return;
-
-        let changes: parser.Edit[] = [];
-        for (const c of event.contentChanges) {
-            const startPos0 = c.range.start;
-            const startIndex0 = event.document.offsetAt(startPos0);
-            const endPos0 = c.range.end;
-            const endIndex0 = startIndex0 + c.rangeLength;
-            const endIndex1 = startIndex0 + c.text.length;
-            const endPos1 = event.document.positionAt(endIndex1);
-
-            changes.push({
-                startIndex: startIndex0,
-                oldEndIndex: endIndex0,
-                newEndIndex: endIndex1,
-                startPosition: { row: startPos0.line, column: startPos0.character },
-                oldEndPosition: { row: endPos0.line, column: endPos0.character },
-                newEndPosition: { row: endPos1.line, column: endPos1.character }
-            });
-        }
-
-        updateTree(event.document, changes);
+        updateTree(event.document);
     }, null, context.subscriptions);
 
 
