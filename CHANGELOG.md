@@ -1,5 +1,10 @@
 # Syntax Highlighter Change Log
 
+## **Version 0.3.0**
+#### New programming languages:
+* Ruby
+
+
 ## **Version 0.2.9**
 #### Changes:
 * Fix corruption of highlighting on multi-line edits (including formatting and renaming)
