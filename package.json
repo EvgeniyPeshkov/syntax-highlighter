@@ -54,6 +54,7 @@
 		"onLanguage:go",
 		"onLanguage:rust",
 		"onLanguage:php",
+		"onLanguage:ruby",
 		"onLanguage:lua"
 	],
 	"main": "./out/extension.js",
@@ -83,6 +84,7 @@
 		"tree-sitter-go": "^0.13.3",
 		"tree-sitter-rust": "^0.13.7",
 		"tree-sitter-php": "^0.13.1",
+		"tree-sitter-ruby": "^0.13.14",
 		"tree-sitter-lua": "^1.5.3"
 	},
 	"contributes": {
