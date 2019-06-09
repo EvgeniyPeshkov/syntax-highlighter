@@ -1,6 +1,7 @@
 # Syntax Highlighter for VSCode
 
 #### Syntax highlighter based on [Tree-Sitter](https://tree-sitter.github.io/tree-sitter/).
+![demo](images/demo.gif)
 
 #### Languages:
 * C++
