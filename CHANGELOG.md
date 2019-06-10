@@ -1,5 +1,13 @@
 # Syntax Highlighter Change Log
 
+## **Version 0.3.1**
+#### Changes:
+* Demo of {Syntax Highlighter} in README.md
+* C++: `noexcept` keyword is highlighted
+* C++: definition of operator (e.g. `operator!()`) is highlighted
+* C++: `default` is highlighted as *modifier* instead of *control*
+
+
 ## **Version 0.3.0**
 #### New programming languages:
 * Ruby
