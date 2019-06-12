@@ -1,5 +1,13 @@
 # Syntax Highlighter Change Log
 
+## **Version 0.3.2**
+#### Changes:
+* Go: highlighting of punctuation
+* Go: highlighting of `[` and `]`
+* Go: highlighting of `&^` and `&^=` operators
+* Demo for Go in README.md
+
+
 ## **Version 0.3.1**
 #### Changes:
 * Demo of {Syntax Highlighter} in README.md
