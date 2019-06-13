@@ -74,7 +74,7 @@
 		"tslint": "^5.17.0",
 		"typescript": "^3.5.1",
 		"vscode": "^1.1.34",
-		"vsce": "^1.62.0",
+		"vsce": "^1.63.0",
 		"tree-sitter": "^0.15.1",
 		"tree-sitter-cli": "^0.15.2",
 		"tree-sitter-cpp": "^0.13.15",
