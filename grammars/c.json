@@ -18,6 +18,7 @@
         "\"volatile\"": "modifier",
         "\"restrict\"": "modifier",
         "\"_Atomic\"": "modifier",
+        "\"__attribute__\"": "modifier",
         "function_specifier": "modifier",
 
         "number_literal": "number",

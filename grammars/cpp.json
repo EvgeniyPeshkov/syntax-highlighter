@@ -31,6 +31,7 @@
         "\"volatile\"": "modifier",
         "\"restrict\"": "modifier",
         "\"_Atomic\"": "modifier",
+        "\"__attribute__\"": "modifier",
         "function_specifier": "modifier",
 
         "number_literal": "number",
@@ -69,10 +70,10 @@
         "\"typename\"": "control",
         "\"try\"": "control",
         "\"catch\"": "control",
+        "\"trow\"": "control",
 
         "\"sizeof\"": "operator",
         "\"new\"": "operator",
-        "\"delete\"": "operator",
         "\".\"": "operator",
         "\"->\"": "operator",
         "\"*\"": "operator",
@@ -132,7 +133,7 @@
         "\")\"": "punctuation"
     },
 
-    "complexTerms": ["identifier", "field_identifier"],
+    "complexTerms": ["identifier", "field_identifier", "\"delete\""],
 
     "complexScopes": {
         "identifier": "variable",
@@ -148,6 +149,9 @@
         "function_declarator > field_identifier": "function",
         "function_declarator > scoped_identifier > identifier": "function",
         "destructor_name > identifier": "function",
+
+        "\"delete\"": "operator",
+        "delete_method_clause > \"delete\"": "modifier"
     },
 
 }
