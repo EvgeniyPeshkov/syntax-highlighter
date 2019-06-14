@@ -30,6 +30,7 @@
         "\"final\"": "modifier",
         "\"override\"": "modifier",
         "\"default\"": "modifier",
+        "\"virtual\"": "modifier",
         "function_specifier": "modifier",
 
         "number_literal": "number",
