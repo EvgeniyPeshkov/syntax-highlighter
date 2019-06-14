@@ -9,12 +9,12 @@
 
         "statement_identifier": "variable",
 
+        "\"const\"": "modifier",
+        "\"static\"": "modifier",
         "\"auto\"": "modifier",
         "\"extern\"": "modifier",
-        "\"register\"": "modifier",
-        "\"static\"": "modifier",
         "\"inline\"": "modifier",
-        "\"const\"": "modifier",
+        "\"register\"": "modifier",
         "\"volatile\"": "modifier",
         "\"restrict\"": "modifier",
         "\"_Atomic\"": "modifier",
