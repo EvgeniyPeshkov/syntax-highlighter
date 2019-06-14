@@ -1,5 +1,14 @@
 # Syntax Highlighter Change Log
 
+## **Version 0.3.3**
+#### Changes:
+* The latest versions of tree-sitter-cpp/c
+* C++: fix highlighting of `virtual` method definitions
+* C++: fix highlighting of `delete` in method definitions
+* C++: fix highlighting of `throw` expressions
+* C++/C: highlighting of `__attribute__` as *modifier*
+
+
 ## **Version 0.3.2**
 #### Changes:
 * Go: highlighting of punctuation
@@ -11,9 +20,9 @@
 ## **Version 0.3.1**
 #### Changes:
 * Demo of {Syntax Highlighter} in README.md
-* C++: `noexcept` keyword is highlighted
-* C++: definition of operator (e.g. `operator!()`) is highlighted
-* C++: `default` is highlighted as *modifier* instead of *control*
+* C++: highlighting of `noexcept` keyword
+* C++: highlighting of operator definitions (e.g. `operator!()`)
+* C++: highlighting `default` as *modifier* instead of *control*
 
 
 ## **Version 0.3.0**

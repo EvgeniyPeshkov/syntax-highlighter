@@ -70,7 +70,7 @@
         "\"typename\"": "control",
         "\"try\"": "control",
         "\"catch\"": "control",
-        "\"trow\"": "control",
+        "\"throw\"": "control",
 
         "\"sizeof\"": "operator",
         "\"new\"": "operator",
