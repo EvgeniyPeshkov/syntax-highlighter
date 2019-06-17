@@ -57,6 +57,7 @@
 
         "\".\"": "operator",
         "\"->\"": "operator",
+        "\"=>\"": "operator",
         "\"-\"": "operator",
         "\"+\"": "operator",
         "\"/\"": "operator",
@@ -111,14 +112,16 @@
     "complexScopes": {
         "type_identifier": "type",
         "scoped_type_identifier > type_identifier": "type",
-        "scoped_identifier > identifier[-1]": "type",
         "use_declaration > identifier": "type",
+        "use_declaration > scoped_identifier > identifier": "type",
         "use_list > identifier": "type",
         "use_list > scoped_identifier > identifier": "type",
         "use_wildcard > \"*\"": "type",
         "use_as_clause > identifier": "type",
         "tuple_struct_pattern > identifier": "type",
+        "tuple_struct_pattern > scoped_identifier > identifier[-1]": "type",
         "enum_variant > identifier": "type",
+        "match_pattern > scoped_identifier > identifier[-1]": "type",
         "unit_type > \"(\"": "type",
         "unit_type > \")\"": "type",
 
@@ -135,6 +138,7 @@
 
         "identifier": "variable",
         "field_identifier": "variable",
+        "scoped_identifier > identifier[-1]": "variable",
 
         "call_expression > identifier": "function",
         "call_expression > field_expression > field_identifier[-1]": "function",
