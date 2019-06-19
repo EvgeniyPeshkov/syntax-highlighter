@@ -1,5 +1,12 @@
 # Syntax Highlighter Change Log
 
+## **Version 0.3.4**
+#### Changes:
+* Rust: fix highlighting of module consts (#17)
+* Rust: highlighting of `=>` operator
+* TS/JS: highlighting of `this` keyword
+
+
 ## **Version 0.3.3**
 #### Changes:
 * The latest versions of tree-sitter-cpp/c
