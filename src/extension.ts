@@ -69,9 +69,11 @@ export async function activate(context: vscode.ExtensionContext) {
     });
 
     const grammars: { [lang: string]: Grammar } = {};
+    const enabledLangs: string[] =
+        vscode.workspace.getConfiguration("syntax").get("highlightLanguages");
     let supportedLangs: string[] = [];
     availableGrammars.forEach(lang => {
-        if (availableParsers.includes(lang))
+        if (availableParsers.includes(lang) && enabledLangs.includes(lang))
             supportedLangs.push(lang);
     });
 

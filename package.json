@@ -215,6 +215,22 @@
 					"description": "Enable highlighting of comments",
 					"type": "boolean",
 					"default": true
+				},
+				"syntax.highlightLanguages": {
+					"description": "Enabled languages",
+					"type": "array",
+					"default": [
+						"c",
+						"cpp",
+						"python",
+						"typescript",
+						"javascript",
+						"go",
+						"rust",
+						"php",
+						"ruby",
+						"lua"
+					]
 				}
 			}
 		}

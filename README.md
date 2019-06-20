@@ -136,6 +136,13 @@ comments. For example, highlighting of ToDo-like tags or documentation syntax, l
 Doxygen or Sphinx. To not overwrite their colorization you can disable highlighting of
 comments, putting `"syntax.highlightComment": false,` in your `settings.json`.
 
+#### `syntax.highlightLanguages`
+List of enabled languages.
+
+If you want to disable {Syntax Highlighter} for certain languages and use standard
+coloring instead, just remove them from `syntax.highlightLanguages` list in your
+`settings.json`. By default all [supported languages]((#languages)) are enabled.
+
 
 ## [Build](BUILD.md)
 
