@@ -1,5 +1,10 @@
 # Syntax Highlighter Change Log
 
+## **Version 0.3.5**
+#### Changes:
+* [Setting to enable/disable languages](README.md#syntaxhighlightlanguages)
+
+
 ## **Version 0.3.4**
 #### Changes:
 * Rust: fix highlighting of module consts (#17)
