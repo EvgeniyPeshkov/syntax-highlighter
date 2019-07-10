@@ -1,5 +1,13 @@
 # Syntax Highlighter Change Log
 
+## **Version 0.3.6**
+#### Changes:
+* Update core *tree-sitter* modules
+* Rust: fix use declarations (#29)
+* Rust: update *tree-sitter-rust*
+* Debug: tool-tip with syntax scope on hover
+
+
 ## **Version 0.3.5**
 #### Changes:
 * [Setting to enable/disable languages](README.md#syntaxhighlightlanguages)
@@ -14,7 +22,7 @@
 
 ## **Version 0.3.3**
 #### Changes:
-* The latest versions of tree-sitter-cpp/c
+* The latest versions of *tree-sitter-cpp/c*
 * C++: fix highlighting of `virtual` method definitions
 * C++: fix highlighting of `delete` in method definitions
 * C++: fix highlighting of `throw` expressions

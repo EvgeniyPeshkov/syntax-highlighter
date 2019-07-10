@@ -3,7 +3,7 @@
 	"displayName": "Syntax Highlighter",
 	"description": "Syntax highlighting based on Tree-sitter",
 	"homepage": "https://github.com/EvgeniyPeshkov/syntax-highlighter",
-	"version": "0.3.5",
+	"version": "0.3.6",
 	"publisher": "evgeniypeshkov",
 	"license": "MIT",
 	"icon": "images/syntax.png",
@@ -236,9 +236,9 @@
 					"description": "Show tool-tip with syntax scope on hover",
 					"type": "boolean",
 					"default": false
-                },
-                "syntax.debugDepth": {
-					"description": "Depth of syntax scope",
+				},
+				"syntax.debugDepth": {
+					"description": "Depth of syntax scope in debug tools",
 					"type": "integer",
 					"default": -1
 				}
