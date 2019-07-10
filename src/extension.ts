@@ -51,11 +51,69 @@ class Grammar {
     }
 }
 
+// Language grammars
+const grammars: { [lang: string]: Grammar } = {};
+// Syntax trees
+let trees: { [doc: string]: parser.Tree } = {};
+
+// Syntax scope for node in position
+function scopeInfo(doc: vscode.TextDocument, pos: vscode.Position) {
+    const uri = doc.uri.toString();
+    if (!(uri in trees))
+        return null;
+    const grammar = grammars[doc.languageId];
+
+    const xy: parser.Point = { row: pos.line, column: pos.character };
+    let node = trees[uri].rootNode.descendantForPosition(xy);
+    if (!node)
+        return null;
+
+    let type = node.type;
+    if (!node.isNamed())
+        type = '"' + type + '"';
+    let parent = node.parent;
+
+    for (let i = 0; i < grammar.complexDepth && parent; i++) {
+        let parentType = parent.type;
+        if (!parent.isNamed())
+            parentType = '"' + parentType + '"';
+        type = parentType + " > " + type;
+        parent = parent.parent;
+    }
+
+    // If there is also order complexity
+    if (grammar.complexOrder)
+    {
+        let index = 0;
+        let sibling = node.previousSibling;
+        while (sibling) {
+            if (sibling.type === node.type)
+                index++;
+            sibling = sibling.previousSibling;
+        }
+
+        let rindex = -1;
+        sibling = node.nextSibling;
+        while (sibling) {
+            if (sibling.type === node.type)
+                rindex--;
+            sibling = sibling.nextSibling;
+        }
+
+        type = type + "[" + index + "]" + "[" + rindex + "]";
+    }
+
+    return {
+        contents: [type],
+        range: new vscode.Range(
+            node.startPosition.row, node.startPosition.column,
+            node.endPosition.row, node.endPosition.column)
+    };
+}
+
+
 // Extension activation
 export async function activate(context: vscode.ExtensionContext) {
-
-    // Syntax trees
-    let trees: { [doc: string]: parser.Tree } = {};
 
     // Languages
     let availableGrammars: string[] = [];
@@ -68,7 +126,6 @@ export async function activate(context: vscode.ExtensionContext) {
         availableParsers.push(path.basename(name, ".wasm"));
     });
 
-    const grammars: { [lang: string]: Grammar } = {};
     const enabledLangs: string[] =
         vscode.workspace.getConfiguration("syntax").get("highlightLanguages");
     let supportedLangs: string[] = [];
@@ -339,5 +396,11 @@ export async function activate(context: vscode.ExtensionContext) {
         if (needUpdate)
             enqueueDecorUpdate();
     }, null, context.subscriptions);
+
+    // Register debug hover providers
+    // Very useful tool for implementation and fixing of grammars
+    if (vscode.workspace.getConfiguration("syntax").get("debugHover"))
+        for (const lang of supportedLangs)
+            vscode.languages.registerHoverProvider(lang, { provideHover: scopeInfo });
 
 }

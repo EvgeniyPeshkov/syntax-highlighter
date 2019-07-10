@@ -231,6 +231,11 @@
 						"ruby",
 						"lua"
 					]
+				},
+				"syntax.debugHover": {
+					"description": "Show tool-tip with syntax scope on hover",
+					"type": "boolean",
+					"default": false
 				}
 			}
 		}
