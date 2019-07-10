@@ -113,7 +113,7 @@
         "type_identifier": "type",
         "scoped_type_identifier > type_identifier": "type",
         "use_declaration > identifier": "type",
-        "use_declaration > scoped_identifier > identifier": "type",
+        "use_declaration > scoped_identifier > identifier[-1]": "type",
         "use_list > identifier": "type",
         "use_list > scoped_identifier > identifier": "type",
         "use_wildcard > \"*\"": "type",
