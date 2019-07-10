@@ -236,6 +236,11 @@
 					"description": "Show tool-tip with syntax scope on hover",
 					"type": "boolean",
 					"default": false
+                },
+                "syntax.debugDepth": {
+					"description": "Depth of syntax scope",
+					"type": "integer",
+					"default": -1
 				}
 			}
 		}

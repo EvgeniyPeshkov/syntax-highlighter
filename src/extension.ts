@@ -57,6 +57,7 @@ const grammars: { [lang: string]: Grammar } = {};
 let trees: { [doc: string]: parser.Tree } = {};
 
 // Syntax scope for node in position
+let debugDepth = -1;
 function scopeInfo(doc: vscode.TextDocument, pos: vscode.Position) {
     const uri = doc.uri.toString();
     if (!(uri in trees))
@@ -73,7 +74,8 @@ function scopeInfo(doc: vscode.TextDocument, pos: vscode.Position) {
         type = '"' + type + '"';
     let parent = node.parent;
 
-    for (let i = 0; i < grammar.complexDepth && parent; i++) {
+    const depth = Math.max(grammar.complexDepth, debugDepth);
+    for (let i = 0; i < depth && parent; i++) {
         let parentType = parent.type;
         if (!parent.isNamed())
             parentType = '"' + parentType + '"';
@@ -134,7 +136,6 @@ export async function activate(context: vscode.ExtensionContext) {
             supportedLangs.push(lang);
     });
 
-
     // Term colors
     const supportedTerms: string[] = [
         "type", "scope", "function", "variable", "number", "string", "comment",
@@ -142,6 +143,9 @@ export async function activate(context: vscode.ExtensionContext) {
     ];
     if (!vscode.workspace.getConfiguration("syntax").get("highlightComment"))
         supportedTerms.splice(supportedTerms.indexOf("comment"), 1);
+
+    // Debug depth
+    debugDepth = vscode.workspace.getConfiguration("syntax").get("debugDepth");
 
     // Decoration definitions
     const highlightDecors: { [color: string]: vscode.TextEditorDecorationType } = {};
