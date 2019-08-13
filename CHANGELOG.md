@@ -1,5 +1,12 @@
 # Syntax Highlighter Change Log
 
+## **Version 0.3.7**
+#### Changes:
+* Update *tree-sitter-python* parser
+* Update *vsce* module
+* Fix: doesn't work when VSCode is installed on D:\ (#30)
+
+
 ## **Version 0.3.6**
 #### Changes:
 * Update core *tree-sitter* modules
