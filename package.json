@@ -67,6 +67,7 @@
 	},
 	"dependencies": {
 		"jsonc-parser": "^2.1.1",
+		"web-tree-sitter": "^0.15.9"
 	},
 	"devDependencies": {
 		"@types/node": "^12.7.2",
@@ -74,8 +75,8 @@
 		"typescript": "^3.5.3",
 		"vscode": "^1.1.36",
 		"vsce": "^1.66.0",
-		"tree-sitter": "^0.15.7",
-		"tree-sitter-cli": "^0.15.5",
+		"tree-sitter": "^0.15.8",
+		"tree-sitter-cli": "^0.15.7",
 		"tree-sitter-cpp": "^0.15.0",
 		"tree-sitter-c": "^0.15.0",
 		"tree-sitter-python": "^0.15.0",
