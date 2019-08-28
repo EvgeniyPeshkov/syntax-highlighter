@@ -82,11 +82,11 @@
 		"tree-sitter-python": "^0.15.0",
 		"tree-sitter-typescript": "^0.13.6",
 		"tree-sitter-javascript": "^0.13.10",
-		"tree-sitter-go": "^0.13.3",
+		"tree-sitter-go": "^0.15.0",
 		"tree-sitter-rust": "^0.15.1",
 		"tree-sitter-php": "^0.13.1",
-		"tree-sitter-ruby": "^0.13.14",
-		"tree-sitter-lua": "^1.5.3"
+		"tree-sitter-ruby": "^0.15.2",
+		"tree-sitter-lua": "^1.6.0"
 	},
 	"contributes": {
 		"colors": [
