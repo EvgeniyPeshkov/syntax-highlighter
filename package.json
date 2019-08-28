@@ -66,14 +66,13 @@
 		"postinstall": "node ./node_modules/vscode/bin/install && node ./scripts/build.js"
 	},
 	"dependencies": {
-		"jsonc-parser": "^2.1.0",
-		"web-tree-sitter": "^0.15.6"
+		"jsonc-parser": "^2.1.1",
 	},
 	"devDependencies": {
-		"@types/node": "^12.0.4",
-		"tslint": "^5.17.0",
-		"typescript": "^3.5.1",
-		"vscode": "^1.1.34",
+		"@types/node": "^12.7.2",
+		"tslint": "^5.19.0",
+		"typescript": "^3.5.3",
+		"vscode": "^1.1.36",
 		"vsce": "^1.66.0",
 		"tree-sitter": "^0.15.7",
 		"tree-sitter-cli": "^0.15.5",
