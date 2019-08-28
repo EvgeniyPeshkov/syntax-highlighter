@@ -2,7 +2,7 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
-            "name": "Launch Extension",
+            "name": "Extension",
             "type": "extensionHost",
             "request": "launch",
             "runtimeExecutable": "${execPath}",
@@ -11,6 +11,12 @@
             "sourceMaps": true,
             "outFiles": [ "${workspaceRoot}/out/**/*.js" ],
             "preLaunchTask": "npm: watch"
+        },
+        {
+            "name": "Build",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}/scripts/build.js"
         }
 	]
 }
