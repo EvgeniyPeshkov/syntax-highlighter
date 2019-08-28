@@ -10,25 +10,36 @@ fs.readdirSync(__dirname + "/../grammars/").forEach(name => {
     langs.push(path.basename(name, ".json"));
 });
 
+// Language-package map
+const langMap = {
+}
+
 // Build wasm parsers for supported languages
 const parsersDir = __dirname + "/../parsers";
 if (!fs.existsSync(parsersDir)) {
     fs.mkdirSync(parsersDir);
 }
 for (li of langs) {
-    const l = li;
-    console.log("Compiling " + l + " parser");
-    exec('node_modules/.bin/tree-sitter build-wasm node_modules/tree-sitter-' + l,
+    const lang = li;
+    let module = "node_modules/tree-sitter-" + lang;
+    let output = "tree-sitter-" + lang + ".wasm";
+    if (langMap[lang]) {
+        module = path.join("node_modules/tree-sitter-" + langMap[lang][0], langMap[lang][1])
+        output = "tree-sitter-" + langMap[lang][1] + ".wasm";
+    }
+
+    console.log("Compiling " + lang + " parser");
+    exec("node_modules/.bin/tree-sitter build-wasm " + module,
         (err) => {
             if (err)
-                console.log("Failed to build wasm for " + l + ": " + err.message);
+                console.log("Failed to build wasm for " + lang + ": " + err.message);
             else
-                fs.rename("tree-sitter-" + l + ".wasm", "parsers/" + l + ".wasm",
+                fs.rename(output, "parsers/" + lang + ".wasm",
                     (err) => {
                         if (err)
                             console.log("Failed to copy built parser: " + err.message);
                         else
-                            console.log("Successfully compiled " + l + " parser");
+                            console.log("Successfully compiled " + lang + " parser");
                     });
         });
 }
