@@ -1,5 +1,12 @@
 # Syntax Highlighter Change Log
 
+## **Version 0.3.8**
+#### Changes:
+* Update core *vscode* and *typescript* packages
+* Update core *tree-sitter* packages
+* Update *typescript*, *go*, *ruby* and *lua* parsers
+
+
 ## **Version 0.3.7**
 #### Changes:
 * Update *tree-sitter-python* parser
