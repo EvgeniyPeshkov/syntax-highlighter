@@ -1,7 +1,7 @@
 # Syntax Highlighter for VSCode
 
 #### Syntax highlighter based on [Tree-Sitter](https://tree-sitter.github.io/tree-sitter/).
-#### Languages: C++, C, Python, TypeScript, JavaScript, Go, Rust, Php, Ruby, Lua
+#### Languages: C++, C, Python, TypeScript, TypeScriptReact, JavaScript, Go, Rust, Php, Ruby, Lua
 
 ![demo](images/demo.gif)
 
@@ -10,6 +10,7 @@
 * C
 * Python
 * TypeScript
+* TypeScriptReact
 * JavaScript
 * Go
 * Rust
