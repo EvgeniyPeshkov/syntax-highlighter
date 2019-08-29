@@ -12,7 +12,8 @@ fs.readdirSync(__dirname + "/../grammars/").forEach(name => {
 
 // Language-package map
 const langMap = {
-    typescript: ["typescript", "typescript"]
+    typescript: ["typescript", "typescript"],
+    typescriptreact: ["typescript", "tsx"]
 }
 
 // Build wasm parsers for supported languages
