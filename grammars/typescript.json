@@ -54,7 +54,6 @@
         "\"async\"": "control",
         "\"await\"": "control",
         "\"debugger\"": "control",
-        "\"delete\"": "control",
 
         "\"this\"": "operator",
         "\"class\"": "operator",
@@ -69,6 +68,7 @@
         "\"instanceof\"": "operator",
         "\"of\"": "operator",
         "\"new\"": "operator",
+        "\"delete\"": "operator",
         "\"typeof\"": "operator",
         "\"get\"": "operator",
         "\"set\"": "operator",
@@ -127,19 +127,21 @@
         "\"${\"": "punctuation",
     },
 
-    "complexTerms": ["identifier", "field_identifier", "property_identifier", "super"],
+    "complexTerms": ["identifier", "property_identifier", "super"],
 
     "complexScopes": {
-        "identifier": "variable",
-        "property_identifier": "variable",
-        "member_expression > property_identifier": "variable",
-        "jsx_attribute > property_identifier": "variable",
-
         "class > identifier": "type",
         "new_expression > call_expression > identifier": "type",
         "jsx_opening_element > identifier": "type",
         "jsx_closing_element > identifier": "type",
         "jsx_self_closing_element > identifier": "type",
+
+        "nested_type_identifier > identifier": "scope",
+
+        "identifier": "variable",
+        "property_identifier": "variable",
+        "member_expression > property_identifier": "variable",
+        "jsx_attribute > property_identifier": "variable",
 
         "call_expression > identifier": "function",
         "call_expression > super": "function",
