@@ -1,5 +1,10 @@
 # Syntax Highlighter Change Log
 
+## **Version 0.4.0**
+#### New programming languages:
+* TypeScript React (TSX)
+
+
 ## **Version 0.3.8**
 #### Changes:
 * Update core *vscode* and *typescript* packages
