@@ -1,5 +1,6 @@
 {
     "simpleTerms": {
+        "shorthand_property_identifier": "variable",
 
         "\"var\"": "modifier",
         "\"let\"": "modifier",
@@ -19,7 +20,6 @@
         "false": "constant",
         "null": "constant",
         "undefined": "constant",
-        "shorthand_property_identifier": "constant",
 
         "\"as\"": "control",
         "\"if\"": "control",

@@ -3,6 +3,11 @@
         "type_identifier": "type",
         "predefined_type": "type",
 
+        "namespace": "scope",
+        "module": "scope",
+
+        "shorthand_property_identifier": "variable",
+
         "\"var\"": "modifier",
         "\"let\"": "modifier",
         "\"extends\"": "modifier",
@@ -12,9 +17,6 @@
         "\"private\"": "modifier",
         "\"protected\"": "modifier",
         "\"readonly\"": "modifier",
-
-        "namespace": "scope",
-        "module": "scope",
 
         "number": "number",
         "string": "string",
@@ -29,7 +31,6 @@
         "false": "constant",
         "null": "constant",
         "undefined": "constant",
-        "shorthand_property_identifier": "constant",
 
         "\"as\"": "control",
         "\"if\"": "control",
