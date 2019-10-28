@@ -61,6 +61,7 @@
         "onLanguage:rust",
         "onLanguage:php",
         "onLanguage:ruby",
+        "onLanguage:shellscript",
         "onLanguage:lua"
     ],
     "main": "./out/extension.js",
@@ -237,6 +238,7 @@
                         "rust",
                         "php",
                         "ruby",
+                        "shellscript",
                         "lua"
                     ]
                 },
