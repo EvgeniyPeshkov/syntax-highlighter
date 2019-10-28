@@ -1,0 +1,75 @@
+{
+    "simpleTerms": {
+
+        "special_variable_name": "variable",
+        "variable_name": "variable",
+
+        "file_descriptor": "number",
+        "ansii_c_string": "string",
+        "heredoc_body": "string",
+        "heredoc_start": "string",
+        "regex": "string",
+        "comment": "comment",
+
+        "\"if\"": "control",
+        "\"fi\"": "control",
+        "\"then\"": "control",
+        "\"else\"": "control",
+        "\"elif\"": "control",
+        "\"for\"": "control",
+        "\"do\"": "control",
+        "\"done\"": "control",
+        "\"case\"": "control",
+        "\"esac\"": "control",
+        "\"in\"": "control",
+        "\"while\"": "control",
+        "\"until\"": "control",
+        "\"function\"": "control",
+        "\"local\"": "control",
+        "\"declare\"": "control",
+        "\"export\"": "control",
+        "\"readonly\"": "control",
+        "\"typeset\"": "control",
+        "\"unset\"": "control",
+        "\"unsetenv\"": "control",
+
+        "\"=\"": "operator",
+        "\"&\"": "operator",
+        "\"&&\"": "operator",
+        "\"|\"": "operator",
+        "\"||\"": "operator",
+        "\"<\"": "operator",
+        "\">\"": "operator",
+        "\">>\"": "operator",
+        "\"&>\"": "operator",
+        "\"&>>\"": "operator",
+        "\"<&\"": "operator",
+        "\">&\"": "operator",
+        "\"<<-\"": "operator",
+        "\"<<<\"": "operator",
+        "test_operator": "operator",
+
+        "\"$\"": "punctuation",
+        "\"${\"": "punctuation",
+        "\"}\"": "punctuation",
+        "\"$(\"": "punctuation",
+        "\"(\"": "punctuation",
+        "\")\"": "punctuation",
+        "\"[\"": "punctuation",
+        "\"]\"": "punctuation",
+        "\"\"\"": "punctuation"
+    },
+
+    "complexTerms": ["word", "raw_string", "string"],
+
+    "complexScopes": {
+        "word": "variable",
+
+        "function_definition > word": "function",
+        "command_name > word": "function",
+        "command_name > string": "function",
+        "command_name > raw_string": "function",
+
+        "variable_assignment > word": "number"
+    }
+}
