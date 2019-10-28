@@ -13,7 +13,8 @@ fs.readdirSync(__dirname + "/../grammars/").forEach(name => {
 // Language-package map
 const langMap = {
     typescript: ["typescript", "typescript"],
-    typescriptreact: ["typescript", "tsx"]
+    typescriptreact: ["typescript", "tsx"],
+    shellscript: ["bash"]
 }
 
 // Build wasm parsers for supported languages
@@ -26,8 +27,9 @@ for (li of langs) {
     let module = "node_modules/tree-sitter-" + lang;
     let output = "tree-sitter-" + lang + ".wasm";
     if (langMap[lang]) {
-        module = path.join("node_modules/tree-sitter-" + langMap[lang][0], langMap[lang][1])
-        output = "tree-sitter-" + langMap[lang][1] + ".wasm";
+        module = path.join("node_modules/tree-sitter-" +
+            langMap[lang][0], ...langMap[lang].slice(1))
+        output = "tree-sitter-" + langMap[lang][langMap[lang].length - 1] + ".wasm";
     }
 
     console.log("Compiling " + lang + " parser");
