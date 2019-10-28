@@ -92,6 +92,7 @@
         "tree-sitter-rust": "^0.15.1",
         "tree-sitter-php": "^0.13.1",
         "tree-sitter-ruby": "^0.15.2",
+        "tree-sitter-bash": "^0.16.0",
         "tree-sitter-lua": "^1.6.0"
     },
     "contributes": {
