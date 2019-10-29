@@ -102,7 +102,7 @@
         "\":\"": "punctuation",
         "\",\"": "punctuation",
         "\"{\"": "punctuation",
-        "\"}\"": "punctuation",
+        "\"}\"": "punctuation"
     },
 
     "complexTerms": [
@@ -163,8 +163,6 @@
         "unit_expression > \"(\"": "constant",
         "unit_expression > \")\"": "constant",
         "attribute_item > \"[\"": "directive",
-        "attribute_item > \"]\"": "directive",
-
-    },
-
+        "attribute_item > \"]\"": "directive"
+    }
 }

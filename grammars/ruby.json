@@ -97,7 +97,7 @@
         "\")\"": "punctuation",
         "\"{\"": "punctuation",
         "\"}\"": "punctuation",
-        "\"#{\"": "punctuation",
+        "\"#{\"": "punctuation"
     },
 
     "complexTerms": ["identifier"],
@@ -112,6 +112,6 @@
         "call > identifier": "function",
         "method_call > identifier": "function",
         "singleton_method > identifier": "function",
-        "method_parameters > identifier": "function",
+        "method_parameters > identifier": "function"
 	},
 }

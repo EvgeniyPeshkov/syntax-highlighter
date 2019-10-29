@@ -91,7 +91,7 @@
         "\",\"": "punctuation",
         "\";\"": "punctuation",
         "\".\"": "punctuation",
-        "\":\"": "punctuation",
+        "\":\"": "punctuation"
     },
 
     "complexTerms": ["identifier", "field_identifier"],
@@ -104,5 +104,5 @@
         "function_declaration > identifier": "function",
         "method_declaration > field_identifier": "function",
         "call_expression > selector_expression > field_identifier": "function",
-    },
+    }
 }

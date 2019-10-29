@@ -69,7 +69,7 @@
         "\"(\"": "punctuation",
         "\")\"": "punctuation",
         "\";\"": "punctuation",
-        "\",\"": "punctuation",
+        "\",\"": "punctuation"
     },
 
     "complexTerms": ["identifier", "property_identifier"],
@@ -82,8 +82,6 @@
         "function_call > property_identifier": "function",
         "function_name > identifier": "function",
         "function_name > property_identifier": "function",
-        "local_function > identifier": "function",
-
+        "local_function > identifier": "function"
     }
-
 }

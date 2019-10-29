@@ -109,7 +109,7 @@
         "\"]\"": "punctuation",
         "\".\"": "punctuation",
         "\",\"": "punctuation",
-        "\"${\"": "punctuation",
+        "\"${\"": "punctuation"
     },
 
     "complexTerms": ["identifier", "field_identifier", "property_identifier", "super"],
@@ -131,6 +131,6 @@
         "function > identifier": "function",
         "generator_function > identifier": "function",
         "method_definition > property_identifier": "function",
-        "call_expression > member_expression > property_identifier": "function",
+        "call_expression > member_expression > property_identifier": "function"
     }
 }

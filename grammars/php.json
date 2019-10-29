@@ -131,8 +131,7 @@
         "\"[\"": "punctuation",
         "\"]\"": "punctuation",
         "\";\"": "punctuation",
-        "\",\"": "punctuation",
-
+        "\",\"": "punctuation"
     },
 
     "complexTerms": ["name", "simple_variable"],
@@ -160,7 +159,6 @@
 
         "const_element > name": "constant",
         "class_constant_access_expression > name": "constant",
-        "qualified_name > name": "constant",
-
+        "qualified_name > name": "constant"
     }
 }

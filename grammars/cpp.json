@@ -152,6 +152,5 @@
 
         "\"delete\"": "operator",
         "delete_method_clause > \"delete\"": "modifier"
-    },
-
+    }
 }

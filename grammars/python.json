@@ -89,8 +89,7 @@
         "\"{\"": "punctuation",
         "\"}\"": "punctuation",
         "\"(\"": "punctuation",
-        "\")\"": "punctuation",
-
+        "\")\"": "punctuation"
     },
 
     "complexTerms": ["identifier", "attribute"],
@@ -113,6 +112,6 @@
 
         "call > identifier": "function",
         "call > attribute > identifier[-1]": "function",
-        "function_definition > identifier": "function",
+        "function_definition > identifier": "function"
     }
 }
