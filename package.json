@@ -72,18 +72,18 @@
         "vscode:package": "node ./node_modules/.bin/vsce package",
         "compile": "tsc -p ./",
         "watch": "tsc -watch -p ./",
-        "postinstall": "node ./node_modules/vscode/bin/install && node ./scripts/build.js"
+        "postinstall": "node ./scripts/build.js"
     },
     "dependencies": {
-        "jsonc-parser": "^2.1.1",
+        "jsonc-parser": "^2.2.0",
         "web-tree-sitter": "^0.15.10"
     },
     "devDependencies": {
         "@types/node": "^12.7.2",
-        "tslint": "^5.19.0",
-        "typescript": "^3.5.3",
-        "vscode": "^1.1.36",
-        "vsce": "^1.66.0",
+        "@types/vscode": "1.15.0",
+        "tslint": "^5.20.0",
+        "typescript": "^3.6.4",
+        "vsce": "^1.68.0",
         "tree-sitter": "^0.15.13",
         "tree-sitter-cli": "^0.15.12",
         "tree-sitter-cpp": "^0.15.0",
