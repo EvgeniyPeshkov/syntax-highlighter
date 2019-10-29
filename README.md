@@ -16,6 +16,8 @@
 * Rust
 * Php
 * Ruby
+* ShellScript
+* Bash
 * Lua
 * More to come...
 

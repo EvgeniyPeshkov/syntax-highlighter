@@ -1,5 +1,10 @@
 # Syntax Highlighter Change Log
 
+## **Version 0.4.1**
+#### New programming languages:
+* ShellScript/Bash
+
+
 ## **Version 0.4.0**
 #### New programming languages:
 * TypeScript React (TSX)
