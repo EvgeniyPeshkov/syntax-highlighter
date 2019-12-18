@@ -46,7 +46,7 @@
         "\"debugger\"": "control",
         "\"delete\"": "control",
 
-        "\"this\"": "operator",
+        "this": "operator",
         "\"class\"": "operator",
         "\"function\"": "operator",
 

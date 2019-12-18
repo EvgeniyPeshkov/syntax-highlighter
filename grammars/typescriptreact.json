@@ -58,7 +58,7 @@
         "\"await\"": "control",
         "\"debugger\"": "control",
 
-        "\"this\"": "operator",
+        "this": "operator",
         "\"class\"": "operator",
         "\"type\"": "operator",
         "\"enum\"": "operator",
