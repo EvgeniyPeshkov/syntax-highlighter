@@ -244,6 +244,25 @@
                         "lua"
                     ]
                 },
+                "syntax.highlightTerms": {
+                    "description": "Enabled terms",
+                    "type": "array",
+                    "default": [
+                        "type",
+                        "scope",
+                        "function",
+                        "variable",
+                        "number",
+                        "string",
+                        "comment",
+                        "constant",
+                        "directive",
+                        "control",
+                        "operator",
+                        "modifier",
+                        "punctuation"
+                    ]
+                },
                 "syntax.debugHover": {
                     "description": "Show tool-tip with syntax scope on hover",
                     "type": "boolean",

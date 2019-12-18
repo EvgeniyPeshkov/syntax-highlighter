@@ -137,12 +137,20 @@ export async function activate(context: vscode.ExtensionContext) {
     });
 
     // Term colors
-    const supportedTerms: string[] = [
+    const availableTerms: string[] = [
         "type", "scope", "function", "variable", "number", "string", "comment",
         "constant", "directive", "control", "operator", "modifier", "punctuation",
     ];
+    const enabledTerms: string[] =
+        vscode.workspace.getConfiguration("syntax").get("highlightTerms");
+    let supportedTerms: string[] = [];
+    availableTerms.forEach(term => {
+        if (enabledTerms.includes(term))
+            supportedTerms.push(term);
+    });
     if (!vscode.workspace.getConfiguration("syntax").get("highlightComment"))
-        supportedTerms.splice(supportedTerms.indexOf("comment"), 1);
+        if (supportedTerms.includes("comment"))
+            supportedTerms.splice(supportedTerms.indexOf("comment"), 1);
 
     // Debug depth
     debugDepth = vscode.workspace.getConfiguration("syntax").get("debugDepth");
