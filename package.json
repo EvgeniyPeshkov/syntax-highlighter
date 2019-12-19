@@ -83,7 +83,7 @@
         "@types/vscode": "1.15.0",
         "tslint": "^5.20.0",
         "typescript": "^3.6.4",
-        "vsce": "^1.68.0",
+        "vsce": "^1.71.0",
         "tree-sitter": "^0.16.0",
         "tree-sitter-cli": "^0.16.1",
         "tree-sitter-cpp": "^0.16.0",
