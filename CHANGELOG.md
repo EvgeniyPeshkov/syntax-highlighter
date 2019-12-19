@@ -1,5 +1,11 @@
 # Syntax Highlighter Change Log
 
+## **Version 0.4.2**
+#### Changes:
+* [Setting to enable/disable terms](README.md#syntaxhighlightterms)
+* Update *tree-sitter* core and parsers
+
+
 ## **Version 0.4.1**
 #### New programming languages:
 * ShellScript/Bash
