@@ -79,10 +79,10 @@
         "web-tree-sitter": "^0.16.0"
     },
     "devDependencies": {
-        "@types/node": "^12.7.2",
+        "@types/node": "^13.7.2",
         "@types/vscode": "1.15.0",
-        "tslint": "^5.20.0",
-        "typescript": "^3.6.4",
+        "tslint": "^6.0.0",
+        "typescript": "^3.7.5",
         "vsce": "^1.71.0",
         "tree-sitter": "^0.16.0",
         "tree-sitter-cli": "^0.16.4",
