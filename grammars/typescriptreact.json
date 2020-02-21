@@ -4,7 +4,7 @@
         "predefined_type": "type",
 
         "namespace": "scope",
-        "module": "scope",
+        "\"module\"": "scope",
 
         "shorthand_property_identifier": "variable",
 

@@ -50,7 +50,7 @@
         "Lua"
     ],
     "engines": {
-        "vscode": "1.37.0"
+        "vscode": "^1.37.0"
     },
     "activationEvents": [
         "onLanguage:c",
@@ -80,7 +80,7 @@
     },
     "devDependencies": {
         "@types/node": "^13.7.2",
-        "@types/vscode": "1.37.0",
+        "@types/vscode": "^1.37.0",
         "tslint": "^6.0.0",
         "typescript": "^3.7.5",
         "vsce": "^1.73.0",
