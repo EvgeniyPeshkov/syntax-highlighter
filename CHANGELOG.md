@@ -1,5 +1,12 @@
 # Syntax Highlighter Change Log
 
+## **Version 0.4.3**
+#### Changes:
+* Fix highlighting og modules in TypeScript
+* Update PHP and TypeScript *tree-sitter* parsers
+* Update version of VSCode engine
+
+
 ## **Version 0.4.2**
 #### Changes:
 * [Setting to enable/disable terms](README.md#syntaxhighlightterms)
