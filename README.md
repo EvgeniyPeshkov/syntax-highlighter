@@ -156,10 +156,11 @@ coloring instead, just remove them from `syntax.highlightLanguages` list in your
 
 ## [Build](BUILD.md)
 
-{Syntax Highlighter} extension depends on certain Tree-sitter modules.
-They are [native Node.js modules](https://nodejs.org/api/addons.html)
-that require a compilation for particular architecture, OS and version
-of Node.js. Refer to [BUILD.md](BUILD.md) for instructions.
+{Syntax Highlighter} utilizes [WebAssembly bindings to the Tree-sitter parsing library](
+https://github.com/tree-sitter/tree-sitter/tree/master/lib/binding_web).
+All language parsers are [compiled to binary .wasm modules](
+https://github.com/tree-sitter/tree-sitter/tree/master/lib/binding_web#generate-wasm-language-files).
+To build .wasm you'll need Emscripten SDK. Refer to [BUILD.md](BUILD.md) for instructions.
 
 ## [Contribute](CONTRIBUTING.md)
 
