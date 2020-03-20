@@ -242,6 +242,7 @@
                         "php",
                         "ruby",
                         "shellscript",
+                        "ocaml",
                         "lua"
                     ]
                 },
