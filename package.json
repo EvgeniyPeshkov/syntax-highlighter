@@ -96,6 +96,7 @@
         "tree-sitter-php": "^0.16.1",
         "tree-sitter-ruby": "^0.16.1",
         "tree-sitter-bash": "^0.16.0",
+        "tree-sitter-ocaml": "github:tree-sitter/tree-sitter-ocaml#9e4f226",
         "tree-sitter-lua": "^1.6.0"
     },
     "contributes": {
