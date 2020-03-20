@@ -3,7 +3,7 @@
     "displayName": "Syntax Highlighter",
     "description": "Syntax highlighting based on Tree-sitter",
     "homepage": "https://github.com/EvgeniyPeshkov/syntax-highlighter",
-    "version": "0.4.3",
+    "version": "0.4.4",
     "publisher": "evgeniypeshkov",
     "license": "MIT",
     "icon": "images/syntax.png",
@@ -47,6 +47,7 @@
         "Ruby",
         "ShellScript",
         "Bash",
+        "OCaml",
         "Lua"
     ],
     "engines": {
@@ -64,6 +65,7 @@
         "onLanguage:php",
         "onLanguage:ruby",
         "onLanguage:shellscript",
+        "onLanguage:ocaml",
         "onLanguage:lua"
     ],
     "main": "./out/extension.js",

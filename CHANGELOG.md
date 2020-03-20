@@ -1,5 +1,10 @@
 # Syntax Highlighter Change Log
 
+## **Version 0.4.4**
+#### New programming languages:
+* OCaml
+
+
 ## **Version 0.4.3**
 #### Changes:
 * Fix highlighting og modules in TypeScript
