@@ -1,5 +1,10 @@
 # Syntax Highlighter Change Log
 
+## **Version 0.4.5**
+#### Critical fixes:
+* Fix frequent crashes.
+
+
 ## **Version 0.4.4**
 #### New programming languages:
 * OCaml
