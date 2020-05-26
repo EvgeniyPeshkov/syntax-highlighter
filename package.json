@@ -97,9 +97,9 @@
         "tree-sitter-ruby": "^0.16.1",
         "tree-sitter-rust": "^0.16.0",
         "tree-sitter-typescript": "^0.16.1",
-        "tslint": "^6.1.0",
-        "typescript": "^3.8.3",
-        "vsce": "^1.74.0"
+        "tslint": "^6.1.2",
+        "typescript": "^3.9.3",
+        "vsce": "^1.75.0"
     },
     "contributes": {
         "colors": [
