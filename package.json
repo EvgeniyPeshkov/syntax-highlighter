@@ -50,9 +50,6 @@
         "OCaml",
         "Lua"
     ],
-    "engines": {
-        "vscode": "^1.37.0"
-    },
     "activationEvents": [
         "onLanguage:c",
         "onLanguage:cpp",
@@ -82,7 +79,7 @@
     },
     "devDependencies": {
         "@types/node": "^13.7.2",
-        "@types/vscode": "^1.37.0",
+        "@types/vscode": "^1.46.0",
         "tree-sitter": "^0.16.1",
         "tree-sitter-bash": "^0.16.1",
         "tree-sitter-c": "^0.16.1",
