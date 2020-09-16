@@ -50,6 +50,11 @@ class Grammar {
         this.parser.setLanguage(langObj);
     }
 
+    // Build syntax tree
+    tree(doc: string) {
+        return this.parser.parse(doc);
+    }
+
     // Parse syntax tree
     parse(tree: parser.Tree) {
         // Travel tree and peek terms
@@ -340,7 +345,7 @@ export async function activate(context: vscode.ExtensionContext) {
             await grammars[lang].init();
         }
         const uri = doc.uri.toString();
-        trees[uri] = grammars[lang].parser.parse(doc.getText());
+        trees[uri] = grammars[lang].tree(doc.getText());
         enqueueDecorUpdate();
     }
 
@@ -351,7 +356,7 @@ export async function activate(context: vscode.ExtensionContext) {
             return;
 
         // Update tree
-        trees[uri] = grammars[lang].parser.parse(doc.getText())
+        trees[uri] = grammars[lang].tree(doc.getText())
 
         // Invalidate decoration cache and enqueue update
         delete decorCache[uri];
