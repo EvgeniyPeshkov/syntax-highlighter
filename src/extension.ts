@@ -15,8 +15,8 @@ class Grammar {
     readonly simpleTerms: { [sym: string]: string } = {};
     readonly complexTerms: string[] = [];
     readonly complexScopes: { [sym: string]: string } = {};
-    readonly complexDepth: number;
-    readonly complexOrder: boolean;
+    readonly complexDepth: number = 0;
+    readonly complexOrder: boolean = false;
 
     constructor(lang: string) {
         // Grammar
@@ -29,8 +29,6 @@ class Grammar {
             this.complexTerms[t] = grammarJson.complexTerms[t];
         for (const t in grammarJson.complexScopes)
             this.complexScopes[t] = grammarJson.complexScopes[t];
-        this.complexDepth = 0;
-        this.complexOrder = false;
         for (const s in this.complexScopes) {
             const depth = s.split(">").length;
             if (depth > this.complexDepth)
