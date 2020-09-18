@@ -137,12 +137,10 @@ class Grammar {
                                 node.endPosition.column))
                     });
                 }
-
                 // Go right
                 node = node.nextSibling
             }
         }
-
         return terms;
     }
 }
@@ -151,6 +149,39 @@ class Grammar {
 const grammars: { [lang: string]: Grammar } = {};
 // Syntax trees
 let trees: { [doc: string]: parser.Tree } = {};
+
+// Semantic token legend
+const termMap = new Map<string, { type: string, modifiers?: string[] }>();
+function buildLegend() {
+    // Terms vocabulary
+    termMap.set("type", { type: "type" });
+    termMap.set("scope", { type: "namespace" });
+    termMap.set("function", { type: "function" });
+    termMap.set("variable", { type: "variable" });
+    termMap.set("number", { type: "number" });
+    termMap.set("string", { type: "string" });
+    termMap.set("comment", { type: "comment" });
+    termMap.set("constant", { type: "variable", modifiers: ["readonly", "defaultLibrary"] });
+    termMap.set("directive", { type: "macro" });
+    termMap.set("control", { type: "keyword" });
+    termMap.set("operator", { type: "operator" });
+    termMap.set("modifier", { type: "type", modifiers: ["modification"] });
+    termMap.set("punctuation", { type: "label" });
+    // Tokens and modifiers in use
+    let tokens: string[] = [];
+    let modifiers: string[] = [];
+    termMap.forEach(t => {
+        if (!tokens.includes(t.type))
+            tokens.push(t.type);
+        t.modifiers?.forEach(m => {
+            if (!modifiers.includes(m))
+                modifiers.push(m);
+        });
+    });
+    // Construct semantic token legend
+    return new vscode.SemanticTokensLegend(tokens, modifiers);
+}
+const legend = buildLegend();
 
 // Syntax scope for node in position
 let debugDepth = -1;
