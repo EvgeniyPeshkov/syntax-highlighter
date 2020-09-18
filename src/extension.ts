@@ -281,6 +281,33 @@ class TokensProvider implements vscode.DocumentSemanticTokensProvider {
             if (this.supportedTerms.includes("comment"))
                 this.supportedTerms.splice(this.supportedTerms.indexOf("comment"), 1);
     }
+
+    // Provide document tokens
+    async provideDocumentSemanticTokens(
+        doc: vscode.TextDocument,
+        token: vscode.CancellationToken): Promise<vscode.SemanticTokens>
+    {
+        // Grammar
+        const lang = doc.languageId;
+        if (!this.supportedLangs.includes(lang))
+            return null;
+        if (!(lang in grammars)) {
+            grammars[lang] = new Grammar(lang);
+            await grammars[lang].init();
+        }
+        // Parse document
+        const grammar = grammars[lang];
+        const tree = grammar.tree(doc.getText());
+        const terms = grammar.parse(tree);
+        // Build tokens
+        const builder = new vscode.SemanticTokensBuilder(legend);
+        terms.forEach((t) => {
+            if (!this.supportedTerms.includes(t.term))
+                return;
+            builder.push(t.range, termMap.get(t.term).type, termMap.get(t.term).modifiers);
+        })
+        return builder.build();
+    }
 }
 
 
