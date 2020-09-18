@@ -241,6 +241,49 @@ function scopeInfo(doc: vscode.TextDocument, pos: vscode.Position) {
 }
 
 
+// Semantic token provider
+class TokensProvider implements vscode.DocumentSemanticTokensProvider {
+    readonly grammars: { [lang: string]: Grammar } = {};
+    readonly supportedLangs: string[] = [];
+    readonly supportedTerms: string[] = [];
+
+    constructor() {
+        // Languages
+        let availableGrammars: string[] = [];
+        fs.readdirSync(__dirname + "/../grammars/").forEach(name => {
+            availableGrammars.push(path.basename(name, ".json"));
+        });
+
+        let availableParsers: string[] = [];
+        fs.readdirSync(__dirname + "/../parsers/").forEach(name => {
+            availableParsers.push(path.basename(name, ".wasm"));
+        });
+
+        const enabledLangs: string[] = vscode.workspace.
+            getConfiguration("syntax").get("highlightLanguages");
+        availableGrammars.forEach(lang => {
+            if (availableParsers.includes(lang) && enabledLangs.includes(lang))
+                this.supportedLangs.push(lang);
+        });
+
+        // Terms
+        const availableTerms: string[] = [
+            "type", "scope", "function", "variable", "number", "string", "comment",
+            "constant", "directive", "control", "operator", "modifier", "punctuation",
+        ];
+        const enabledTerms: string[] = vscode.workspace.
+            getConfiguration("syntax").get("highlightTerms");
+        availableTerms.forEach(term => {
+            if (enabledTerms.includes(term))
+                this.supportedTerms.push(term);
+        });
+        if (!vscode.workspace.getConfiguration("syntax").get("highlightComment"))
+            if (this.supportedTerms.includes("comment"))
+                this.supportedTerms.splice(this.supportedTerms.indexOf("comment"), 1);
+    }
+}
+
+
 // Extension activation
 export async function activate(context: vscode.ExtensionContext) {
 
