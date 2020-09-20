@@ -73,6 +73,9 @@
         "watch": "tsc -watch -p ./",
         "postinstall": "node ./scripts/build.js"
     },
+    "engines": {
+        "vscode": "^1.46.0"
+    },
     "dependencies": {
         "jsonc-parser": "^2.2.1",
         "web-tree-sitter": "^0.16.2"
