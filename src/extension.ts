@@ -244,28 +244,9 @@ function scopeInfo(doc: vscode.TextDocument, pos: vscode.Position) {
 // Semantic token provider
 class TokensProvider implements vscode.DocumentSemanticTokensProvider {
     readonly grammars: { [lang: string]: Grammar } = {};
-    readonly supportedLangs: string[] = [];
     readonly supportedTerms: string[] = [];
 
     constructor() {
-        // Languages
-        let availableGrammars: string[] = [];
-        fs.readdirSync(__dirname + "/../grammars/").forEach(name => {
-            availableGrammars.push(path.basename(name, ".json"));
-        });
-
-        let availableParsers: string[] = [];
-        fs.readdirSync(__dirname + "/../parsers/").forEach(name => {
-            availableParsers.push(path.basename(name, ".wasm"));
-        });
-
-        const enabledLangs: string[] = vscode.workspace.
-            getConfiguration("syntax").get("highlightLanguages");
-        availableGrammars.forEach(lang => {
-            if (availableParsers.includes(lang) && enabledLangs.includes(lang))
-                this.supportedLangs.push(lang);
-        });
-
         // Terms
         const availableTerms: string[] = [
             "type", "scope", "function", "variable", "number", "string", "comment",
@@ -289,8 +270,6 @@ class TokensProvider implements vscode.DocumentSemanticTokensProvider {
     {
         // Grammar
         const lang = doc.languageId;
-        if (!this.supportedLangs.includes(lang))
-            return null;
         if (!(lang in grammars)) {
             grammars[lang] = new Grammar(lang);
             await grammars[lang].init();
