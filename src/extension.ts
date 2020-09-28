@@ -283,8 +283,18 @@ class TokensProvider implements vscode.DocumentSemanticTokensProvider {
         terms.forEach((t) => {
             if (!this.supportedTerms.includes(t.term))
                 return;
-            builder.push(t.range, termMap.get(t.term).type, termMap.get(t.term).modifiers);
-        })
+            const type = termMap.get(t.term).type;
+            const modifiers = termMap.get(t.term).modifiers;
+            if (t.range.start.line === t.range.end.line)
+                return builder.push(t.range, type, modifiers);
+            let line = t.range.start.line;
+            builder.push(new vscode.Range(t.range.start,
+                doc.lineAt(line).range.end), type, modifiers);
+            for (line = line + 1; line < t.range.end.line; line++)
+                builder.push(doc.lineAt(line).range, type, modifiers);
+            builder.push(new vscode.Range(doc.lineAt(line).range.start,
+                    t.range.end), type, modifiers);
+        });
         return builder.build();
     }
 }
