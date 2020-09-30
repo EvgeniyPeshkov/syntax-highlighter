@@ -108,7 +108,8 @@
         }],
         "semanticTokenScopes": [{
             "scopes": {
-                "punctuation": ["punctuation"]
+                "punctuation": ["punctuation"],
+                "type.modification": ["storage.modifier"]
             }
         }],
         "colors": [
