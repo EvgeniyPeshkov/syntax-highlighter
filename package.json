@@ -102,6 +102,15 @@
         "vsce": "^1.75.0"
     },
     "contributes": {
+        "semanticTokenTypes": [{
+            "id": "punctuation",
+            "description": "Punctuation symbols"
+        }],
+        "semanticTokenScopes": [{
+            "scopes": {
+                "punctuation": ["punctuation"]
+            }
+        }],
         "colors": [
             {
                 "id": "syntax.type",

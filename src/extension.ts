@@ -166,7 +166,7 @@ function buildLegend() {
     termMap.set("control", { type: "keyword" });
     termMap.set("operator", { type: "operator" });
     termMap.set("modifier", { type: "type", modifiers: ["modification"] });
-    termMap.set("punctuation", { type: "label" });
+    termMap.set("punctuation", { type: "punctuation" });
     // Tokens and modifiers in use
     let tokens: string[] = [];
     let modifiers: string[] = [];
