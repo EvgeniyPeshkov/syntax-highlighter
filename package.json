@@ -102,16 +102,24 @@
         "vsce": "^1.75.0"
     },
     "contributes": {
-        "semanticTokenTypes": [{
-            "id": "punctuation",
-            "description": "Punctuation symbols"
-        }],
-        "semanticTokenScopes": [{
-            "scopes": {
-                "punctuation": ["punctuation"],
-                "type.modification": ["storage.modifier"]
+        "semanticTokenTypes": [
+            {
+                "id": "punctuation",
+                "description": "Punctuation symbols"
             }
-        }],
+        ],
+        "semanticTokenScopes": [
+            {
+                "scopes": {
+                    "punctuation": [
+                        "punctuation"
+                    ],
+                    "type.modification": [
+                        "storage.modifier"
+                    ]
+                }
+            }
+        ],
         "colors": [
             {
                 "id": "syntax.type",
