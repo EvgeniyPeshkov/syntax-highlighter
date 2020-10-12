@@ -24,11 +24,11 @@
 * Lua
 * More to come...
 
-#### Description
+## Description
 
 Provides universal syntax coloring engine for almost any programming language.
-See [list of currently supported languages](#languages) above. Under the hood
-the extension utilizes VSCode Decoration API to override syntax coloring provided
+See [list of currently supported languages](#languages) above. Under the hood the
+extension utilizes VSCode Semantic Token API to override syntax coloring provided
 by standard TextMate regex matching. Constructing entire syntax tree, Tree-sitter
 efficiently overcomes all limitations of built-in TextMate grammars. Being
 context-aware, it's able to parse complex language structures providing complete
@@ -129,13 +129,12 @@ If you want to disable {Syntax Highlighter} for certain languages and use standa
 coloring instead, just remove them from `syntax.highlightLanguages` list in your
 `settings.json`. By default all [supported languages]((#languages)) are enabled.
 
-
 ## [Build](BUILD.md)
 
-{Syntax Highlighter} utilizes [WebAssembly bindings to the Tree-sitter parsing library](
-https://github.com/tree-sitter/tree-sitter/tree/master/lib/binding_web).
-All language parsers are [compiled to binary .wasm modules](
-https://github.com/tree-sitter/tree-sitter/tree/master/lib/binding_web#generate-wasm-language-files).
+{Syntax Highlighter} utilizes
+[WebAssembly bindings to the Tree-sitter parsing library](https://github.com/tree-sitter/tree-sitter/tree/master/lib/binding_web).
+All language parsers are
+[compiled to binary .wasm modules](https://github.com/tree-sitter/tree-sitter/tree/master/lib/binding_web#generate-wasm-language-files).
 To build .wasm you'll need Emscripten SDK. Refer to [BUILD.md](BUILD.md) for instructions.
 
 ## [Contribute](CONTRIBUTING.md)
