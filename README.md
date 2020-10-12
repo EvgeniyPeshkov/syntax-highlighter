@@ -37,101 +37,74 @@ All these advantages enable accurate and consistent syntax highlighting.
 
 ## Customization
 
-{Syntax Highlighter} exposes a number of settings to assign theme colors to syntax terms.
-For simple and straightforward customization, we keep a number of syntax terms small,
-namely: *type*, *function*, *variable*, *string*, *number*, *comment*, an some others.
-They are presented under `syntax` sub-section of
-[`workbench.colorCustomizations`](https://code.visualstudio.com/api/references/theme-color)
-in `settings.json`. Autocomplete may be used to discover customizable colors.
-They also provide short description on hover. Complete list of settings can be found
-in `Contributions` tab. To redefine syntax colors for [Visual Studio Dark] theme, put
-the following into `settings.json`:
+{Syntax Highlighter} is a
+[semantic token provider](https://code.visualstudio.com/api/language-extensions/semantic-highlight-guide).
+It follows the current color theme out-of-the-box, as soon as the theme
+enables semantic colorization through its `semanticHighlighting` setting.
+You can forcefully enable semantic highlighting in `settings.json`:
 
-    "workbench.colorCustomizations": {
-        "[Visual Studio Dark]": {
-            "syntax.type": "#26A69A",
-            "syntax.scope": "#00897B",
-            "syntax.function": "#00BCD4",
-            "syntax.variable": "#42A5F5",
-            "syntax.number": "#90A4AE",
-            "syntax.string": "#90A4AE",
-            "syntax.comment": "#546E7A",
-            "syntax.constant": "#A89F9B",
-            "syntax.directive": "#7E57C2",
-            "syntax.control": "#7986CB",
-            "syntax.operator": "#9575CD",
-            "syntax.modifier": "#00897B",
-            "syntax.punctuation": "#A1887F",
+    "editor.semanticTokenColorCustomizations": {
+        "enabled": true, // enable for all themes
+        "[Default Dark+]": {
+            "enabled": true // enable for a particular theme
         }
-    },
+    }
 
-For consistency with built-in TextMate grammars, the same colors can be provided
-for corresponding TextMate scopes. Or backwards, one can port colors from TextMate
-to {Syntax Highlighter}. In most cases there is one to one match. For example, for
-C++: `syntax.function = entity.name.function` or `syntax.number = constant.numeric`.
-Current TextMate colors can be discovered using `Ctrl + Shift + P -> Developer:
-Generate Color Theme...`, in generated theme file address `tokenColors` section.
-The following settings synchronize TextMate colors with {Syntax Highlighter} for C++:
+To customize token colors follow
+[this guide](https://code.visualstudio.com/docs/getstarted/themes#_editor-semantic-highlighting).
+For example:
 
-    "editor.tokenColorCustomizations": {
-        "[Visual Studio Dark]": {
-            "types": "#26A69A",
-            "functions": "#00BCD4",
-            "variables": "#42A5F5",
-            "numbers": "#90A4AE",
-            "strings": "#90A4AE",
-            "comments": "#546E7A",
-            "keywords": "#7986CB",
-            "textMateRules": [
-                {
-                    "scope": "storage.type",
-                    "settings": {"foreground": "#26A69A"}
+    "editor.semanticTokenColorCustomizations": {
+        "[Default Dark+]": {
+            "enabled": true,
+            "rules": {
+                "type":  "#26A69A",
+                "namespace": "#00897B",
+                "function": "#00BCD4",
+                "variable": "#42A5F5",
+                "number": "#90A4AE",
+                "string": {
+                    "foreground": "#90A4AE",
+                    "italic": true
                 },
-                {
-                    "scope": "entity.name.function",
-                    "settings": {"foreground": "#00BCD4"}
+                "comment": {
+                    "foreground": "#546E7A",
+                    "fontStyle": "italic"
                 },
-                {
-                    "scope": [
-                        "meta.function-call",
-                        "source.cpp meta.block variable.other"
-                    ],
-                    "settings": {"foreground": "#42A5F5"}
-                },
-                {
-                    "scope": "constant.numeric",
-                    "settings": {"foreground": "#90A4AE"}
-                },
-                {
-                    "scope": "comment",
-                    "settings": {"foreground": "#546E7A"}
-                },
-                {
-                    "scope": [
-                        "constant.language",
-                        "variable.language"
-                    ],
-                    "settings": {"foreground": "#A89F9B"}
-                },
-                {
-                    "scope": "keyword.control",
-                    "settings": {"foreground": "#7986CB"}
-                },
-                {
-                    "scope": "keyword.operator",
-                    "settings": {"foreground": "#9575CD" }
-                },
-                {
-                    "scope": "storage.modifier",
-                    "settings": {"foreground": "#00897B"}
-                },
-                {
-                    "scope": "punctuation",
-                    "settings": {"foreground": "#A1887F"}
-                },
-            ]
+                "variable.readonly.defaultLibrary": "#A89F9B",
+                "macro": "#7E57C2",
+                "keyword": "#7986CB",
+                "operator": "#9575CD",
+                "type.modification": "#00897B",
+                "punctuation": "#A1887F"
+            }
         }
-    },
+    }
+
+If no color is assigned to a semantic token by theme, the VSCode uses the
+[Semantic Token Scope Map](https://code.visualstudio.com/api/language-extensions/semantic-highlight-guide#semantic-token-scope-map).
+
+{Syntax Highlighter} provides the next tokens:
+* **type** - types (class, struct, enum)
+* **namespace** - scopes (namespace, module, outer class)
+* **function** - functions (function, method, interface)
+* **variable** - variables (variable, property, member)
+* **number** - number literals (10, 10.0f, 0x10)
+* **string** - string literals (string, regex, char)
+* **comment** - comments
+* **variable.readonly.defaultLibrary** - language constants (true, nullptr, nil)
+* **macro** - directives (#include, import, use)
+* **keyword** - control keywords (if, continue, return)
+* **operator** - operators (&&, +=, ->)
+* **type.modification** - modifiers (const, public, override)
+* **punctuation** - punctuation symbols (., :, {)
+
+**punctuation** is a custom (non-standard) token introduced by {Syntax Highlighter}.
+Its fallback TextMate scope is *"punctuation"*. The default fallback for
+**type.modification** is *"storage.modifier"*. Note that if you override **type**
+color you should also override **type.modification**. Otherwise, **type.modification**
+color will first fallback to a more general **type** instead of mapped TextMate scope.
+The same goes for **variable** and **variable.readonly.defaultLibrary**.
 
 ## Settings
 #### `syntax.highlightComment`
