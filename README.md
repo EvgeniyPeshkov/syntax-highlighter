@@ -81,7 +81,7 @@ For example:
         }
     }
 
-If no color is assigned to a semantic token by theme, the VSCode uses the
+If no color is assigned to a semantic token by a theme, the VSCode uses the
 [Semantic Token Scope Map](https://code.visualstudio.com/api/language-extensions/semantic-highlight-guide#semantic-token-scope-map).
 
 {Syntax Highlighter} provides the next tokens:
