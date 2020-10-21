@@ -177,64 +177,6 @@ function buildLegend() {
 }
 const legend = buildLegend();
 
-// Syntax scope for node in position
-// let debugDepth = -1;
-// function scopeInfo(doc: vscode.TextDocument, pos: vscode.Position) {
-//     const uri = doc.uri.toString();
-//     if (!(uri in trees))
-//         return null;
-//     const grammar = grammars[doc.languageId];
-
-//     const xy: parser.Point = { row: pos.line, column: pos.character };
-//     let node = trees[uri].rootNode.descendantForPosition(xy);
-//     if (!node)
-//         return null;
-
-//     let type = node.type;
-//     if (!node.isNamed())
-//         type = '"' + type + '"';
-//     let parent = node.parent;
-
-//     const depth = Math.max(grammar.complexDepth, debugDepth);
-//     for (let i = 0; i < depth && parent; i++) {
-//         let parentType = parent.type;
-//         if (!parent.isNamed())
-//             parentType = '"' + parentType + '"';
-//         type = parentType + " > " + type;
-//         parent = parent.parent;
-//     }
-
-//     // If there is also order complexity
-//     if (grammar.complexOrder)
-//     {
-//         let index = 0;
-//         let sibling = node.previousSibling;
-//         while (sibling) {
-//             if (sibling.type === node.type)
-//                 index++;
-//             sibling = sibling.previousSibling;
-//         }
-
-//         let rindex = -1;
-//         sibling = node.nextSibling;
-//         while (sibling) {
-//             if (sibling.type === node.type)
-//                 rindex--;
-//             sibling = sibling.nextSibling;
-//         }
-
-//         type = type + "[" + index + "]" + "[" + rindex + "]";
-//     }
-
-//     return {
-//         contents: [type],
-//         range: new vscode.Range(
-//             node.startPosition.row, node.startPosition.column,
-//             node.endPosition.row, node.endPosition.column)
-//     };
-// }
-
-
 // Semantic token provider
 class TokensProvider implements vscode.DocumentSemanticTokensProvider {
     readonly grammars: { [lang: string]: Grammar } = {};
@@ -293,8 +235,68 @@ class TokensProvider implements vscode.DocumentSemanticTokensProvider {
         });
         return builder.build();
     }
-}
 
+    // Provide hover tooltips
+    async provideHover(
+        doc: vscode.TextDocument,
+        pos: vscode.Position,
+        token: vscode.CancellationToken): Promise<vscode.Hover>
+    {
+        const uri = doc.uri.toString();
+        if (!(uri in this.trees))
+            return null;
+        const grammar = this.grammars[doc.languageId];
+        const tree = this.trees[uri];
+
+        const xy: parser.Point = { row: pos.line, column: pos.character };
+        let node = tree.rootNode.descendantForPosition(xy);
+        if (!node)
+            return null;
+
+        let type = node.type;
+        if (!node.isNamed())
+            type = '"' + type + '"';
+        let parent = node.parent;
+
+        const depth = Math.max(grammar.complexDepth, this.debugDepth);
+        for (let i = 0; i < depth && parent; i++) {
+            let parentType = parent.type;
+            if (!parent.isNamed())
+                parentType = '"' + parentType + '"';
+            type = parentType + " > " + type;
+            parent = parent.parent;
+        }
+
+        // If there is also order complexity
+        if (grammar.complexOrder)
+        {
+            let index = 0;
+            let sibling = node.previousSibling;
+            while (sibling) {
+                if (sibling.type === node.type)
+                    index++;
+                sibling = sibling.previousSibling;
+            }
+
+            let rindex = -1;
+            sibling = node.nextSibling;
+            while (sibling) {
+                if (sibling.type === node.type)
+                    rindex--;
+                sibling = sibling.nextSibling;
+            }
+
+            type = type + "[" + index + "]" + "[" + rindex + "]";
+        }
+
+        return {
+            contents: [type],
+            range: new vscode.Range(
+                node.startPosition.row, node.startPosition.column,
+                node.endPosition.row, node.endPosition.column)
+        };
+    }
+}
 
 // Extension activation
 export async function activate(context: vscode.ExtensionContext) {
