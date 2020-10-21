@@ -3,7 +3,6 @@ import * as parser from 'web-tree-sitter';
 import * as jsonc from 'jsonc-parser';
 import * as fs from 'fs';
 import * as path from 'path';
-import { clearTimeout } from 'timers';
 
 // Grammar class
 const parserPromise = parser.init();
@@ -239,6 +238,7 @@ const legend = buildLegend();
 // Semantic token provider
 class TokensProvider implements vscode.DocumentSemanticTokensProvider {
     readonly grammars: { [lang: string]: Grammar } = {};
+    readonly trees: { [doc: string]: parser.Tree } = {};
     readonly supportedTerms: string[] = [];
 
     constructor() {
@@ -273,6 +273,7 @@ class TokensProvider implements vscode.DocumentSemanticTokensProvider {
         const grammar = this.grammars[lang];
         const tree = grammar.tree(doc.getText());
         const terms = grammar.parse(tree);
+        this.trees[doc.uri.toString()] = tree;
         // Build tokens
         const builder = new vscode.SemanticTokensBuilder(legend);
         terms.forEach((t) => {
