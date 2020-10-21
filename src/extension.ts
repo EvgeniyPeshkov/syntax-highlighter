@@ -178,10 +178,11 @@ function buildLegend() {
 const legend = buildLegend();
 
 // Semantic token provider
-class TokensProvider implements vscode.DocumentSemanticTokensProvider {
+class TokensProvider implements vscode.DocumentSemanticTokensProvider, vscode.HoverProvider {
     readonly grammars: { [lang: string]: Grammar } = {};
     readonly trees: { [doc: string]: parser.Tree } = {};
     readonly supportedTerms: string[] = [];
+    readonly debugDepth: number;
 
     constructor() {
         // Terms
@@ -198,6 +199,7 @@ class TokensProvider implements vscode.DocumentSemanticTokensProvider {
         if (!vscode.workspace.getConfiguration("syntax").get("highlightComment"))
             if (this.supportedTerms.includes("comment"))
                 this.supportedTerms.splice(this.supportedTerms.indexOf("comment"), 1);
+        this.debugDepth = vscode.workspace.getConfiguration("syntax").get("debugDepth");
     }
 
     // Provide document tokens
@@ -320,13 +322,14 @@ export async function activate(context: vscode.ExtensionContext) {
             supportedLangs.push({language: lang});
     });
 
+    const engine = new TokensProvider();
     context.subscriptions.push(
         vscode.languages.registerDocumentSemanticTokensProvider(
-            supportedLangs, new TokensProvider(), legend));
+            supportedLangs, engine, legend));
 
     // Register debug hover providers
     // Very useful tool for implementation and fixing of grammars
-    // if (vscode.workspace.getConfiguration("syntax").get("debugHover"))
-    //     for (const lang of supportedLangs)
-    //         vscode.languages.registerHoverProvider(lang, { provideHover: scopeInfo });
+    if (vscode.workspace.getConfiguration("syntax").get("debugHover"))
+        for (const lang of supportedLangs)
+            vscode.languages.registerHoverProvider(lang, engine);
 }
