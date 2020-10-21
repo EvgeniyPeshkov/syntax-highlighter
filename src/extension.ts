@@ -145,11 +145,6 @@ class Grammar {
     }
 }
 
-// Language grammars
-const grammars: { [lang: string]: Grammar } = {};
-// Syntax trees
-let trees: { [doc: string]: parser.Tree } = {};
-
 // Semantic token legend
 const termMap = new Map<string, { type: string, modifiers?: string[] }>();
 function buildLegend() {
@@ -270,12 +265,12 @@ class TokensProvider implements vscode.DocumentSemanticTokensProvider {
     {
         // Grammar
         const lang = doc.languageId;
-        if (!(lang in grammars)) {
-            grammars[lang] = new Grammar(lang);
-            await grammars[lang].init();
+        if (!(lang in this.grammars)) {
+            this.grammars[lang] = new Grammar(lang);
+            await this.grammars[lang].init();
         }
         // Parse document
-        const grammar = grammars[lang];
+        const grammar = this.grammars[lang];
         const tree = grammar.tree(doc.getText());
         const terms = grammar.parse(tree);
         // Build tokens
