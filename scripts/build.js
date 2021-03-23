@@ -14,6 +14,7 @@ fs.readdirSync(__dirname + "/../grammars/").forEach(name => {
 const langMap = {
     typescript: ["typescript", "typescript"],
     typescriptreact: ["typescript", "tsx"],
+    ocaml: ["ocaml", "ocaml"],
     shellscript: ["bash"]
 }
 
