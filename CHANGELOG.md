@@ -1,5 +1,15 @@
 # Syntax Highlighter Change Log
 
+## **Version 0.5.0**
+#### Semantic Token Provider
+* Utilizes new Semantic Token API.
+* Standard semantic token types.
+* Follows color theme out-of-the box.
+* No need to manually define colors in *settings.json*.
+* Much faster implementation.
+* Doesn't use slow Decoration API.
+
+
 ## **Version 0.4.5**
 #### Critical fixes:
 * Fix frequent crashes.
