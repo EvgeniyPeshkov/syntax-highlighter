@@ -1,5 +1,15 @@
 # Syntax Highlighter Change Log
 
+## **Version 0.5.1**
+#### Changes:
+* Update *tree-sitter* core and parsers.
+* Publishing to Open-VSX registry.
+#### Fixes:
+* C++: structures with attributes.
+* Python: f-strings interpolation.
+* JavaScript: editor freezes.
+
+
 ## **Version 0.5.0**
 #### Semantic Token Provider
 * Utilizes new Semantic Token API.
