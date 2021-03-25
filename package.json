@@ -95,7 +95,7 @@
         "tree-sitter-ocaml": "^0.19.0",
         "tree-sitter-php": "^0.19.0",
         "tree-sitter-python": "^0.19.0",
-        "tree-sitter-ruby": "^0.17.0",
+        "tree-sitter-ruby": "github:tree-sitter/tree-sitter-ruby#v0.19.0",
         "tree-sitter-rust": "^0.19.1",
         "tree-sitter-typescript": "^0.19.0",
         "tslint": "^6.1.2",
