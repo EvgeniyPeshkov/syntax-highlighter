@@ -43,10 +43,10 @@
         "\"enum\"": "control",
         "\"union\"": "control",
         "\"cast\"": "control",
+        "\"ref\"": "control",
 
         "\"sizeof\"": "operator",
         "\".\"": "operator",
-        "\"->\"": "operator",
         "\"*\"": "operator",
         "\"-\"": "operator",
         "\"+\"": "operator",
