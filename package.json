@@ -48,7 +48,8 @@
         "ShellScript",
         "Bash",
         "OCaml",
-        "Lua"
+        "Lua",
+        "D",
     ],
     "activationEvents": [
         "onLanguage:c",
@@ -63,7 +64,8 @@
         "onLanguage:ruby",
         "onLanguage:shellscript",
         "onLanguage:ocaml",
-        "onLanguage:lua"
+        "onLanguage:lua",
+        "onLanguage:d"
     ],
     "main": "./out/extension.js",
     "scripts": {
@@ -89,6 +91,7 @@
         "tree-sitter-c": "^0.19.0",
         "tree-sitter-cli": "^0.19.4",
         "tree-sitter-cpp": "^0.19.0",
+        "tree-sitter-d": "github:cybershadow/tree-sitter-d",
         "tree-sitter-go": "^0.19.1",
         "tree-sitter-javascript": "^0.19.0",
         "tree-sitter-lua": "^1.6.2",
@@ -145,7 +148,8 @@
                         "ruby",
                         "shellscript",
                         "ocaml",
-                        "lua"
+                        "lua",
+                        "d"
                     ]
                 },
                 "syntax.highlightTerms": {
