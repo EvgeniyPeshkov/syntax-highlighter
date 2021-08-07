@@ -43,43 +43,47 @@ It follows the current color theme out-of-the-box, as soon as the theme
 enables semantic colorization through its `semanticHighlighting` setting.
 You can forcefully enable semantic highlighting in `settings.json`:
 
-    "editor.semanticTokenColorCustomizations": {
-        "enabled": true, // enable for all themes
-        "[Default Dark+]": {
-            "enabled": true // enable for a particular theme
-        }
+```json
+"editor.semanticTokenColorCustomizations": {
+    "enabled": true, // enable for all themes
+    "[Default Dark+]": {
+        "enabled": true // enable for a particular theme
     }
+}
+```
 
 To customize token colors follow
 [this guide](https://code.visualstudio.com/docs/getstarted/themes#_editor-semantic-highlighting).
 For example:
 
-    "editor.semanticTokenColorCustomizations": {
-        "[Default Dark+]": {
-            "enabled": true,
-            "rules": {
-                "type":  "#26A69A",
-                "namespace": "#00897B",
-                "function": "#00BCD4",
-                "variable": "#42A5F5",
-                "number": "#90A4AE",
-                "string": {
-                    "foreground": "#90A4AE",
-                    "italic": true
-                },
-                "comment": {
-                    "foreground": "#546E7A",
-                    "fontStyle": "italic"
-                },
-                "variable.readonly.defaultLibrary": "#A89F9B",
-                "macro": "#7E57C2",
-                "keyword": "#7986CB",
-                "operator": "#9575CD",
-                "type.modification": "#00897B",
-                "punctuation": "#A1887F"
-            }
+```json
+"editor.semanticTokenColorCustomizations": {
+    "[Default Dark+]": {
+        "enabled": true,
+        "rules": {
+            "type":  "#26A69A",
+            "namespace": "#00897B",
+            "function": "#00BCD4",
+            "variable": "#42A5F5",
+            "number": "#90A4AE",
+            "string": {
+                "foreground": "#90A4AE",
+                "italic": true
+            },
+            "comment": {
+                "foreground": "#546E7A",
+                "fontStyle": "italic"
+            },
+            "variable.readonly.defaultLibrary": "#A89F9B",
+            "macro": "#7E57C2",
+            "keyword": "#7986CB",
+            "operator": "#9575CD",
+            "type.modification": "#00897B",
+            "punctuation": "#A1887F"
         }
     }
+}
+```
 
 If no color is assigned to a semantic token by a theme, the VSCode uses the
 [Semantic Token Scope Map](https://code.visualstudio.com/api/language-extensions/semantic-highlight-guide#semantic-token-scope-map).
