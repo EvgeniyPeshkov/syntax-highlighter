@@ -49,7 +49,7 @@
         "Bash",
         "OCaml",
         "Lua",
-        "D",
+        "D"
     ],
     "activationEvents": [
         "onLanguage:c",
