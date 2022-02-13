@@ -20,6 +20,23 @@
         "\"namespace\"": "modifier",
         "\"module\"": "modifier",
 
+        "this": "modifier",
+        "\"class\"": "modifier",
+        "\"enum\"": "modifier",
+        "\"function\"": "modifier",
+        "\"interface\"": "modifier",
+        "\"implements\"": "modifier",
+        "\"declare\"": "modifier",
+
+        "\"in\"": "modifier",
+        "\"instanceof\"": "modifier",
+        "\"of\"": "modifier",
+        "\"new\"": "modifier",
+        "\"delete\"": "modifier",
+        "\"typeof\"": "modifier",
+        "\"get\"": "modifier",
+        "\"set\"": "modifier",
+
         "number": "number",
         "string": "string",
         "escape_sequence": "string",
@@ -29,10 +46,10 @@
         "comment": "comment",
         "hash_bang_line": "comment",
 
-        "true": "constant",
-        "false": "constant",
-        "null": "constant",
-        "undefined": "constant",
+        "true": "constant.langauge",
+        "false": "constant.langauge",
+        "null": "constant.langauge",
+        "undefined": "constant.langauge",
 
         "\"as\"": "control",
         "\"if\"": "control",
@@ -57,24 +74,6 @@
         "\"async\"": "control",
         "\"await\"": "control",
         "\"debugger\"": "control",
-
-        "this": "operator",
-        "\"class\"": "operator",
-        "\"type\"": "operator",
-        "\"enum\"": "operator",
-        "\"function\"": "operator",
-        "\"interface\"": "operator",
-        "\"implements\"": "operator",
-        "\"declare\"": "operator",
-
-        "\"in\"": "operator",
-        "\"instanceof\"": "operator",
-        "\"of\"": "operator",
-        "\"new\"": "operator",
-        "\"delete\"": "operator",
-        "\"typeof\"": "operator",
-        "\"get\"": "operator",
-        "\"set\"": "operator",
 
         "\"=\"": "operator",
         "\"+=\"": "operator",
@@ -130,11 +129,11 @@
         "\"${\"": "punctuation"
     },
 
-    "complexTerms": ["identifier", "property_identifier", "super"],
+    "complexTerms": ["identifier", "property_identifier", "super", "\"type\""],
 
     "complexScopes": {
-        "class > identifier": "type",
-        "new_expression > call_expression > identifier": "type",
+        "class_declaration > identifier": "type",
+        "new_expression > identifier": "type",
         "jsx_opening_element > identifier": "type",
         "jsx_closing_element > identifier": "type",
         "jsx_opening_element > nested_identifier > identifier": "type",
@@ -155,6 +154,9 @@
         "method_definition > property_identifier": "function",
         "call_expression > member_expression > property_identifier": "function",
         "method_signature > property_identifier": "function",
-        "function_signature > identifier": "function"
+        "function_declaration > identifier": "function",
+
+        "import_statement > \"type\"": "control",
+        "type_alias_declaration > \"type\"": "modifier"
     }
 }
