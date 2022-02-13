@@ -8,6 +8,18 @@
         "\"const\"": "modifier",
         "\"static\"": "modifier",
 
+        "this": "modifier",
+        "\"class\"": "modifier",
+        "\"function\"": "modifier",
+
+        "\"in\"": "modifier",
+        "\"instanceof\"": "modifier",
+        "\"of\"": "modifier",
+        "\"new\"": "modifier",
+        "\"typeof\"": "modifier",
+        "\"get\"": "modifier",
+        "\"set\"": "modifier",
+
         "number": "number",
         "string": "string",
         "escape_sequence": "string",
@@ -16,10 +28,10 @@
         "comment": "comment",
         "hash_bang_line": "comment",
 
-        "true": "constant",
-        "false": "constant",
-        "null": "constant",
-        "undefined": "constant",
+        "true": "constant.langauge",
+        "false": "constant.langauge",
+        "null": "constant.langauge",
+        "undefined": "constant.langauge",
 
         "\"as\"": "control",
         "\"if\"": "control",
@@ -45,18 +57,6 @@
         "\"await\"": "control",
         "\"debugger\"": "control",
         "\"delete\"": "control",
-
-        "this": "operator",
-        "\"class\"": "operator",
-        "\"function\"": "operator",
-
-        "\"in\"": "operator",
-        "\"instanceof\"": "operator",
-        "\"of\"": "operator",
-        "\"new\"": "operator",
-        "\"typeof\"": "operator",
-        "\"get\"": "operator",
-        "\"set\"": "operator",
 
         "\"=\"": "operator",
         "\"+=\"": "operator",
@@ -120,7 +120,7 @@
         "formal_parameters > identifier": "variable",
         "jsx_attribute > property_identifier": "variable",
 
-        "class > identifier": "type",
+        "class_declaration > identifier": "type",
         "new_expression > identifier": "type",
         "jsx_opening_element > identifier": "type",
         "jsx_closing_element > identifier": "type",
@@ -128,7 +128,7 @@
 
         "call_expression > identifier": "function",
         "call_expression > super": "function",
-        "function > identifier": "function",
+        "function_declaration > identifier": "function",
         "generator_function > identifier": "function",
         "method_definition > property_identifier": "function",
         "call_expression > member_expression > property_identifier": "function"
