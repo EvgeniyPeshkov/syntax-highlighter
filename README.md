@@ -124,14 +124,14 @@ List of enabled terms.
 
 If you want to disable {Syntax Highlighter} for certain terms and use standard
 coloring instead, just remove them from `syntax.highlightTerms` list in your
-`settings.json`. By default all [supported terms]((#customization)) are enabled.
+`settings.json`. By default all [supported terms](#customization) are enabled.
 
 #### `syntax.highlightLanguages`
 List of enabled languages.
 
 If you want to disable {Syntax Highlighter} for certain languages and use standard
 coloring instead, just remove them from `syntax.highlightLanguages` list in your
-`settings.json`. By default all [supported languages]((#languages)) are enabled.
+`settings.json`. By default all [supported languages](#languages) are enabled.
 
 ## [Build](BUILD.md)
 
