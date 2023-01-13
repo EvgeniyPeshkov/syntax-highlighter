@@ -15,6 +15,7 @@ const langMap = {
     typescript: ["typescript", "typescript"],
     typescriptreact: ["typescript", "tsx"],
     ocaml: ["ocaml", "ocaml"],
+    rtx: ["rtx", "rtx"],
     shellscript: ["bash"]
 }
 
